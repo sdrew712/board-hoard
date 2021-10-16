@@ -10,6 +10,5 @@ const getBoardData = async () => {
       console.log(err);
     });
 };
-getBoardData();
 
 exports.getBoardData = getBoardData;

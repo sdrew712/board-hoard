@@ -3,22 +3,18 @@ import Product from "./Product";
 import { getBoardsData } from "../../boardsData";
 
 const ProductsPage = () => {
-  const [boardsData, setBoardsData] = useState({});
+  const [boardsData, setBoardsData] = useState([]);
 
   useEffect(() => {
     getBoardsData().then((res) => {
-      setBoardsData(res);
+      setBoardsData(Object.entries(res));
     });
   }, []);
 
+  boardsData.map(() => {});
   console.log(boardsData);
 
-  return (
-    <div>
-      Products Page bro!
-      <Product />
-    </div>
-  );
+  return <div>Products Page bro!</div>;
 };
 
 export default ProductsPage;

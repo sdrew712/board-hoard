@@ -5,6 +5,7 @@ import {
   Route,
   Redirect,
 } from "react-router-dom";
+import "../index.css";
 
 import TopBar from "./TopBar";
 import HomePage from "./HomePage";

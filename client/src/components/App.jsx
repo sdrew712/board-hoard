@@ -6,10 +6,10 @@ import {
   Redirect,
 } from "react-router-dom";
 
-import TopBar from "./TopBar/TopBar";
-import HomePage from "./HomePage/HomePage";
-import ProductsPage from "./Products/ProductsPage";
-import Cart from "./Cart/Cart";
+import TopBar from "./TopBar";
+import HomePage from "./HomePage";
+import ProductsPage from "./Products";
+import Cart from "./Cart";
 
 const App = () => {
   return (
@@ -20,6 +20,9 @@ const App = () => {
         <Route exact path="/" component={HomePage} />
         <Route exact path="/shop" component={ProductsPage} />
         <Route exact path="/cart" component={Cart} />
+        <Route path="/*">
+          <Redirect to="/" />
+        </Route>
       </Switch>
     </Router>
   );

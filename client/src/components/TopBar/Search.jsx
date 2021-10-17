@@ -1,16 +1,24 @@
 import React, { useState } from "react";
+import axios from "axios";
 
 const Search = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
-  const handleSearchSubmit = (e) => {
+  const handleSearchSubmit = async (e) => {
     e.preventDefault();
-
-    console.log("yurr" + searchTerm);
     //do thing where you send searchterm off
+
+    try {
+      const result = await axios.get("http://localhost:3001/api/search", {
+        params: { searchTerm: searchTerm },
+      });
+      console.log(result.data);
+      // return result.data;
+    } catch (err) {
+      console.error(err);
+    }
   };
 
-  console.log(searchTerm);
   return (
     <div>
       <form onSubmit={handleSearchSubmit}>

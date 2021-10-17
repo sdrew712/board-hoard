@@ -21,3 +21,15 @@ const sendBoardData = (req, res) => {
 };
 
 exports.sendBoardData = sendBoardData;
+
+const searchBoardData = (req, res) => {
+  console.log(req.query.searchTerm);
+  db.result(`SELECT * FROM boards WHERE brand = 'Landyachtz'`)
+    .then((result) => {
+      res.status(200).send(result.rows);
+    })
+    .catch((error) => {
+      console.error("ERROR:", error);
+    });
+};
+exports.searchBoardData = searchBoardData;

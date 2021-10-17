@@ -2,8 +2,17 @@ import React from "react";
 import { handleFilter } from "../../boardsData";
 
 const Filter = ({ isFiltered, setIsFiltered, filterTerm, setFilterTerm }) => {
-  const toggleFilter = () => {
-    setIsFiltered((isFiltered = true));
+  const toggleFilter = (buttonClicked) => {
+    console.log(buttonClicked);
+    console.log(filterTerm);
+
+    if (buttonClicked === filterTerm) {
+      setIsFiltered(!isFiltered);
+      console.log(isFiltered);
+    } else {
+      setIsFiltered((isFiltered = true));
+      console.log(isFiltered);
+    }
   };
 
   return (
@@ -17,7 +26,7 @@ const Filter = ({ isFiltered, setIsFiltered, filterTerm, setFilterTerm }) => {
           onClick={(e) => {
             setFilterTerm(e.target.value);
             handleFilter(filterTerm);
-            toggleFilter();
+            toggleFilter(e.target.value);
           }}
         >
           Landyachtz
@@ -27,7 +36,7 @@ const Filter = ({ isFiltered, setIsFiltered, filterTerm, setFilterTerm }) => {
           onClick={(e) => {
             setFilterTerm(e.target.value);
             handleFilter(filterTerm);
-            toggleFilter();
+            toggleFilter(e.target.value);
           }}
         >
           Zenit

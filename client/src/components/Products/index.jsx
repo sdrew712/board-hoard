@@ -8,17 +8,20 @@ const ProductsPage = () => {
   const [isFiltered, setIsFiltered] = useState(false);
   const [filterTerm, setFilterTerm] = useState("");
 
-  useEffect(() => {
-    getBoardsData().then((res) => {
-      setBoardsData(Object.entries(res));
-    });
-  }, []);
+  // useEffect(() => {
+  //   getBoardsData().then((res) => {
+  //     setBoardsData(Object.entries(res));
+  //   });
+  // }, []);
 
   useEffect(() => {
-    isFiltered &&
-      handleFilter(filterTerm).then((res) => {
-        setBoardsData(Object.entries(res));
-      });
+    isFiltered
+      ? handleFilter(filterTerm).then((res) => {
+          setBoardsData(Object.entries(res));
+        })
+      : getBoardsData().then((res) => {
+          setBoardsData(Object.entries(res));
+        });
   }, [isFiltered, filterTerm]);
 
   const boardRenderer = boardsData.map((data) => {

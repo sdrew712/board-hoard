@@ -23,8 +23,10 @@ const sendBoardData = (req, res) => {
 exports.sendBoardData = sendBoardData;
 
 const searchBoardData = (req, res) => {
-  console.log(req.query.searchTerm);
-  db.result(`SELECT * FROM boards WHERE brand = 'Landyachtz'`)
+  console.log(req.query);
+
+  // console.log(req.query.searchTerm);
+  db.result(`SELECT * FROM boards WHERE brand = '${req.query.brand}'`)
     .then((result) => {
       res.status(200).send(result.rows);
     })

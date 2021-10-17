@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
 import Product from "./Product";
-import { getBoardsData } from "../../boardsData";
+import { getBoardsData, handleFilter } from "../../boardsData";
+import Filter from "./Filter";
 
 const ProductsPage = () => {
   const [boardsData, setBoardsData] = useState([]);
+  const [isFiltered, setIsFiltered] = useState(false);
+  const [filterTerm, setFilterTerm] = useState("");
 
   useEffect(() => {
     getBoardsData().then((res) => {
@@ -11,11 +14,18 @@ const ProductsPage = () => {
     });
   }, []);
 
+  useEffect(() => {
+    isFiltered &&
+      handleFilter(filterTerm).then((res) => {
+        setBoardsData(Object.entries(res));
+      });
+  }, [isFiltered, filterTerm]);
+
   const boardRenderer = boardsData.map((data) => {
-    console.log(data[1]);
     return (
       <Product
         key={data[1].id}
+        id={data[1].id}
         name={data[1].name}
         price={data[1].price}
         brand={data[1].brand}
@@ -32,7 +42,12 @@ const ProductsPage = () => {
 
   return (
     <div>
-      Products Page bro!
+      <Filter
+        isFiltered={isFiltered}
+        setIsFiltered={setIsFiltered}
+        filterTerm={filterTerm}
+        setFilterTerm={setFilterTerm}
+      />
       <div>{boardRenderer}</div>
     </div>
   );

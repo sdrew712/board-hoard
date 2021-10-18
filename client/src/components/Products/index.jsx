@@ -8,20 +8,16 @@ const ProductsPage = () => {
   const [isFiltered, setIsFiltered] = useState(false);
   const [filterTerm, setFilterTerm] = useState("");
 
-  // useEffect(() => {
-  //   getBoardsData().then((res) => {
-  //     setBoardsData(Object.entries(res));
-  //   });
-  // }, []);
-
   useEffect(() => {
-    isFiltered
-      ? handleFilter(filterTerm).then((res) => {
-          setBoardsData(Object.entries(res));
-        })
-      : getBoardsData().then((res) => {
-          setBoardsData(Object.entries(res));
-        });
+    if (isFiltered !== true) {
+      getBoardsData().then((res) => {
+        setBoardsData(Object.entries(res));
+      });
+    } else {
+      handleFilter(filterTerm).then((res) => {
+        setBoardsData(Object.entries(res));
+      });
+    }
   }, [isFiltered, filterTerm]);
 
   const boardRenderer = boardsData.map((data) => {
@@ -51,7 +47,16 @@ const ProductsPage = () => {
         filterTerm={filterTerm}
         setFilterTerm={setFilterTerm}
       />
-      <div>{boardRenderer}</div>
+      <div
+        style={{
+          float: "right",
+          width: "70%",
+          display: "flex",
+          flexWrap: "wrap",
+        }}
+      >
+        {boardRenderer}
+      </div>
     </div>
   );
 };

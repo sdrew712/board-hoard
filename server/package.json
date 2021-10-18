@@ -10,7 +10,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1",
-    "pg-promise": "^10.11.0"
+    "@prisma/client": "^3.2.1",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "prisma": "^3.2.1"
   }
 }

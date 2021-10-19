@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from "react";
 import Product from "./Product";
-import { getBoardsData, handleFilter } from "../../boardsData";
+import { getBoardsData, filterBoardsData } from "./boardsData";
+import Search from "./Search";
 import Filter from "./Filter";
 
 const ProductsPage = () => {
   const [boardsData, setBoardsData] = useState([]);
   const [isFiltered, setIsFiltered] = useState(false);
   const [filterTerms, setFilterTerms] = useState([]);
-
-  // console.log(typeof filterTerms);
 
   useEffect(() => {
     if (isFiltered !== true) {
@@ -18,7 +17,7 @@ const ProductsPage = () => {
       });
     } else {
       console.log("it is filtered");
-      handleFilter(filterTerms).then((res) => {
+      filterBoardsData(filterTerms).then((res) => {
         console.log(res);
         setBoardsData(Object.entries(res));
       });
@@ -46,6 +45,7 @@ const ProductsPage = () => {
 
   return (
     <div>
+      <Search />
       <Filter
         isFiltered={isFiltered}
         setIsFiltered={setIsFiltered}

@@ -11,9 +11,7 @@ const getBoardsData = async () => {
 
 exports.getBoardsData = getBoardsData;
 
-const handleFilter = async (filterTerms) => {
-  // console.log(typeof filterTerms);
-
+const filterBoardsData = async (filterTerms) => {
   try {
     const result = await axios.get(
       `http://localhost:3001/api/search?brands=${filterTerms}`
@@ -24,4 +22,17 @@ const handleFilter = async (filterTerms) => {
   }
 };
 
-exports.handleFilter = handleFilter;
+exports.filterBoardsData = filterBoardsData;
+
+const searchBoardsData = async (searchTerm) => {
+  try {
+    const result = await axios.get(
+      `http://localhost:3001/api/search?${searchTerm}`
+    );
+    return result.data;
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+exports.searchBoardsData = searchBoardsData;

@@ -1,5 +1,5 @@
 import React from "react";
-import { handleFilter } from "../../boardsData";
+import { filterBoardsData } from "./boardsData";
 
 const Filter = ({ isFiltered, setIsFiltered, filterTerms, setFilterTerms }) => {
   const toggleFilter = (buttonClicked) => {
@@ -18,7 +18,7 @@ const Filter = ({ isFiltered, setIsFiltered, filterTerms, setFilterTerms }) => {
         <button
           onClick={(e) => {
             setFilterTerms([...filterTerms, e.target.innerText]);
-            handleFilter(filterTerms);
+            filterBoardsData(filterTerms);
             toggleFilter(e.target.innerText);
           }}
         >
@@ -27,7 +27,7 @@ const Filter = ({ isFiltered, setIsFiltered, filterTerms, setFilterTerms }) => {
         <button
           onClick={(e) => {
             setFilterTerms([...filterTerms, e.target.innerText]);
-            handleFilter(filterTerms);
+            filterBoardsData(filterTerms);
             toggleFilter(e.target.innerText);
           }}
         >
@@ -36,7 +36,7 @@ const Filter = ({ isFiltered, setIsFiltered, filterTerms, setFilterTerms }) => {
         <button
           onClick={(e) => {
             setFilterTerms([...filterTerms, e.target.innerText]);
-            handleFilter(filterTerms);
+            filterBoardsData(filterTerms);
             toggleFilter(e.target.innerText);
           }}
         >
@@ -45,7 +45,7 @@ const Filter = ({ isFiltered, setIsFiltered, filterTerms, setFilterTerms }) => {
         <button
           onClick={(e) => {
             setFilterTerms([...filterTerms, e.target.innerText]);
-            handleFilter(filterTerms);
+            filterBoardsData(filterTerms);
             toggleFilter(e.target.innerText);
           }}
         >
@@ -54,7 +54,7 @@ const Filter = ({ isFiltered, setIsFiltered, filterTerms, setFilterTerms }) => {
         <button
           onClick={(e) => {
             setFilterTerms([...filterTerms, e.target.innerText]);
-            handleFilter(filterTerms);
+            filterBoardsData(filterTerms);
             toggleFilter(e.target.innerText);
           }}
         >

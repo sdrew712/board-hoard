@@ -2,13 +2,30 @@ import React from "react";
 import { filterBoardsData } from "./boardsData";
 
 const Filter = ({ isFiltered, setIsFiltered, filterTerms, setFilterTerms }) => {
-  const toggleFilter = (buttonClicked) => {
-    if (filterTerms?.includes(buttonClicked)) {
-      setIsFiltered(!isFiltered);
+  const handleFilterTerms = (buttonClicked) => {
+    if (filterTerms.includes(buttonClicked)) {
+      setFilterTerms(
+        filterTerms.filter((term) => {
+          return term !== buttonClicked;
+        })
+      );
     } else {
-      setIsFiltered((isFiltered = true));
+      setFilterTerms([...filterTerms, buttonClicked]);
     }
   };
+
+  console.log(filterTerms.length);
+
+  const toggleFilter = () => {
+    if (filterTerms.length === 0) {
+      console.log("hi");
+      setIsFiltered(false);
+    } else {
+      setIsFiltered(true);
+    }
+  };
+
+  toggleFilter();
 
   return (
     <div style={{ float: "left" }}>
@@ -17,45 +34,40 @@ const Filter = ({ isFiltered, setIsFiltered, filterTerms, setFilterTerms }) => {
         <h2>brand</h2>
         <button
           onClick={(e) => {
-            setFilterTerms([...filterTerms, e.target.innerText]);
             filterBoardsData(filterTerms);
-            toggleFilter(e.target.innerText);
+            handleFilterTerms(e.target.innerText);
           }}
         >
           Landyachtz
         </button>
         <button
           onClick={(e) => {
-            setFilterTerms([...filterTerms, e.target.innerText]);
             filterBoardsData(filterTerms);
-            toggleFilter(e.target.innerText);
+            handleFilterTerms(e.target.innerText);
           }}
         >
           Zenit
         </button>
         <button
           onClick={(e) => {
-            setFilterTerms([...filterTerms, e.target.innerText]);
             filterBoardsData(filterTerms);
-            toggleFilter(e.target.innerText);
+            handleFilterTerms(e.target.innerText);
           }}
         >
           Moonshine MFG
         </button>
         <button
           onClick={(e) => {
-            setFilterTerms([...filterTerms, e.target.innerText]);
             filterBoardsData(filterTerms);
-            toggleFilter(e.target.innerText);
+            handleFilterTerms(e.target.innerText);
           }}
         >
           Loaded
         </button>
         <button
           onClick={(e) => {
-            setFilterTerms([...filterTerms, e.target.innerText]);
             filterBoardsData(filterTerms);
-            toggleFilter(e.target.innerText);
+            handleFilterTerms(e.target.innerText);
           }}
         >
           Rayne

@@ -14,6 +14,22 @@ app.get("/api/boards", async (req: any, res: any) => {
   res.status(200).send(allBoards);
 });
 
+app.get("/api/search", async (req: any, res: any) => {
+  const brandsArray = req.query.brands.split(",");
+
+  const brandsFilter = brandsArray.map((element: string) => {
+    return { brand: element };
+  });
+
+  const filteredBoards = await prisma.boards.findMany({
+    where: {
+      OR: brandsFilter,
+    },
+  });
+
+  res.status(200).send(filteredBoards);
+});
+
 app.listen(port, () => {
   console.log(`listening on port ${port}`);
 });

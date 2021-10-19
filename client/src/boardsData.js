@@ -11,12 +11,13 @@ const getBoardsData = async () => {
 
 exports.getBoardsData = getBoardsData;
 
-const handleFilter = async (filterTerm) => {
+const handleFilter = async (filterTerms) => {
+  // console.log(typeof filterTerms);
+
   try {
     const result = await axios.get(
-      `http://localhost:3001/api/search?brand=${filterTerm}`
+      `http://localhost:3001/api/search?brands=${filterTerms}`
     );
-    console.log(result.data);
     return result.data;
   } catch (err) {
     console.error(err);

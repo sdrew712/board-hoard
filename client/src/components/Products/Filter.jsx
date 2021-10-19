@@ -1,9 +1,9 @@
 import React from "react";
 import { handleFilter } from "../../boardsData";
 
-const Filter = ({ isFiltered, setIsFiltered, filterTerm, setFilterTerm }) => {
+const Filter = ({ isFiltered, setIsFiltered, filterTerms, setFilterTerms }) => {
   const toggleFilter = (buttonClicked) => {
-    if (buttonClicked === filterTerm) {
+    if (filterTerms?.includes(buttonClicked)) {
       setIsFiltered(!isFiltered);
     } else {
       setIsFiltered((isFiltered = true));
@@ -12,14 +12,13 @@ const Filter = ({ isFiltered, setIsFiltered, filterTerm, setFilterTerm }) => {
 
   return (
     <div style={{ float: "left" }}>
-      {" "}
       Filters
       <div>
         <h2>brand</h2>
         <button
           onClick={(e) => {
-            setFilterTerm(e.target.innerText);
-            handleFilter(filterTerm);
+            setFilterTerms([...filterTerms, e.target.innerText]);
+            handleFilter(filterTerms);
             toggleFilter(e.target.innerText);
           }}
         >
@@ -27,8 +26,8 @@ const Filter = ({ isFiltered, setIsFiltered, filterTerm, setFilterTerm }) => {
         </button>
         <button
           onClick={(e) => {
-            setFilterTerm(e.target.innerText);
-            handleFilter(filterTerm);
+            setFilterTerms([...filterTerms, e.target.innerText]);
+            handleFilter(filterTerms);
             toggleFilter(e.target.innerText);
           }}
         >
@@ -36,8 +35,8 @@ const Filter = ({ isFiltered, setIsFiltered, filterTerm, setFilterTerm }) => {
         </button>
         <button
           onClick={(e) => {
-            setFilterTerm(e.target.innerText);
-            handleFilter(filterTerm);
+            setFilterTerms([...filterTerms, e.target.innerText]);
+            handleFilter(filterTerms);
             toggleFilter(e.target.innerText);
           }}
         >
@@ -45,8 +44,8 @@ const Filter = ({ isFiltered, setIsFiltered, filterTerm, setFilterTerm }) => {
         </button>
         <button
           onClick={(e) => {
-            setFilterTerm(e.target.innerText);
-            handleFilter(filterTerm);
+            setFilterTerms([...filterTerms, e.target.innerText]);
+            handleFilter(filterTerms);
             toggleFilter(e.target.innerText);
           }}
         >
@@ -54,8 +53,8 @@ const Filter = ({ isFiltered, setIsFiltered, filterTerm, setFilterTerm }) => {
         </button>
         <button
           onClick={(e) => {
-            setFilterTerm(e.target.innerText);
-            handleFilter(filterTerm);
+            setFilterTerms([...filterTerms, e.target.innerText]);
+            handleFilter(filterTerms);
             toggleFilter(e.target.innerText);
           }}
         >

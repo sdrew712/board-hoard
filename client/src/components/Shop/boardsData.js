@@ -27,8 +27,9 @@ exports.filterBoardsData = filterBoardsData;
 const searchBoardsData = async (searchTerm) => {
   try {
     const result = await axios.get(
-      `http://localhost:3001/api/search?${searchTerm}`
+      `http://localhost:3001/api/search?term=${searchTerm}`
     );
+    // console.log(result.data);
     return result.data;
   } catch (err) {
     console.error(err);

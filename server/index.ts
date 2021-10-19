@@ -30,6 +30,36 @@ app.get("/api/filter", async (req: any, res: any) => {
   res.status(200).send(filteredBoards);
 });
 
+app.get("/api/search", async (req: any, res: any) => {
+  const searchTerm = req.query.term;
+
+  const searchResults = await prisma.boards.findMany({
+    where: {
+      OR: [
+        {
+          name: {
+            contains: searchTerm,
+            mode: "insensitive",
+          },
+        },
+        {
+          brand: {
+            contains: searchTerm,
+            mode: "insensitive",
+          },
+        },
+        {
+          category: {
+            contains: searchTerm,
+            mode: "insensitive",
+          },
+        },
+      ],
+    },
+  });
+  res.status(200).send(searchResults);
+});
+
 app.listen(port, () => {
   console.log(`listening on port ${port}`);
 });

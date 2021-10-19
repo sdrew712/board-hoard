@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { filterBoardsData } from "./boardsData";
 
 const Filter = ({ isFiltered, setIsFiltered, filterTerms, setFilterTerms }) => {
@@ -14,18 +14,14 @@ const Filter = ({ isFiltered, setIsFiltered, filterTerms, setFilterTerms }) => {
     }
   };
 
-  console.log(filterTerms.length);
-
-  const toggleFilter = () => {
+  useEffect(() => {
     if (filterTerms.length === 0) {
       console.log("hi");
       setIsFiltered(false);
     } else {
       setIsFiltered(true);
     }
-  };
-
-  toggleFilter();
+  }, [filterTerms, setIsFiltered]);
 
   return (
     <div style={{ float: "left" }}>

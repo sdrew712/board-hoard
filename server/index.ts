@@ -14,7 +14,7 @@ app.get("/api/boards", async (req: any, res: any) => {
   res.status(200).send(allBoards);
 });
 
-app.get("/api/search", async (req: any, res: any) => {
+app.get("/api/filter", async (req: any, res: any) => {
   const brandsArray = req.query.brands.split(",");
 
   const brandsFilter = brandsArray.map((element: string) => {

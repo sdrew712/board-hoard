@@ -9,12 +9,12 @@ const prisma = new PrismaClient();
 
 const port = 3001;
 
-app.get("/api/boards", async (req: any, res: any) => {
+app.get("/api/boards", async (req, res) => {
   const allBoards = await prisma.boards.findMany();
   res.status(200).send(allBoards);
 });
 
-app.get("/api/filter", async (req: any, res: any) => {
+app.get("/api/filter", async (req, res) => {
   console.log(req.query);
 
   const brandsArray = req.query.brandFilterTerms;
@@ -36,7 +36,7 @@ app.get("/api/filter", async (req: any, res: any) => {
   res.status(200).send(filteredBoards);
 });
 
-app.get("/api/search", async (req: any, res: any) => {
+app.get("/api/search", async (req, res) => {
   const searchTerm = req.query.term;
 
   const searchResults = await prisma.boards.findMany({

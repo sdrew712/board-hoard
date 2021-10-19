@@ -9,7 +9,7 @@ import "../index.css";
 
 import TopBar from "./TopBar";
 import HomePage from "./HomePage";
-import ProductsPage from "./Shop";
+import ShopPage from "./Shop";
 import Cart from "./Cart";
 
 const App = () => {
@@ -19,7 +19,7 @@ const App = () => {
 
       <Switch>
         <Route exact path="/" component={HomePage} />
-        <Route exact path="/shop" component={ProductsPage} />
+        <Route exact path="/shop" component={ShopPage} />
         <Route exact path="/cart" component={Cart} />
         <Route path="/*">
           <Redirect to="/" />

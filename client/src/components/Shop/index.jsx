@@ -4,7 +4,7 @@ import { getBoardsData, filterBoardsData } from "./boardsData";
 import Search from "./Search";
 import Filter from "./Filter";
 
-const ProductsPage = () => {
+const ShopPage = () => {
   const [boardsData, setBoardsData] = useState([]);
   const [isFiltered, setIsFiltered] = useState(false);
   const [filterTerms, setFilterTerms] = useState([]);
@@ -66,4 +66,4 @@ const ProductsPage = () => {
   );
 };
 
-export default ProductsPage;
+export default ShopPage;

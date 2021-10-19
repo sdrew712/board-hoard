@@ -15,15 +15,21 @@ app.get("/api/boards", async (req: any, res: any) => {
 });
 
 app.get("/api/filter", async (req: any, res: any) => {
-  const brandsArray = req.query.brands.split(",");
+  console.log(req.query);
 
-  const brandsFilter = brandsArray.map((element: string) => {
-    return { brand: element };
+  const brandsArray = req.query.brandFilterTerms;
+
+  const filterArray: Array<any> = [];
+
+  brandsArray?.forEach((brand: string) => {
+    filterArray.push({ brand: brand });
   });
+
+  console.log(filterArray);
 
   const filteredBoards = await prisma.boards.findMany({
     where: {
-      OR: brandsFilter,
+      OR: filterArray,
     },
   });
 

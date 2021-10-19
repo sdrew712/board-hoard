@@ -11,11 +11,11 @@ const getBoardsData = async () => {
 
 exports.getBoardsData = getBoardsData;
 
-const filterBoardsData = async (filterTerms) => {
+const filterBoardsData = async (brandFilterTerms) => {
   try {
-    const result = await axios.get(
-      `http://localhost:3001/api/filter?brands=${filterTerms}`
-    );
+    const result = await axios.get(`http://localhost:3001/api/filter`, {
+      params: { brandFilterTerms: brandFilterTerms },
+    });
     return result.data;
   } catch (err) {
     console.error(err);

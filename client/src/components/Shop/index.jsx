@@ -10,15 +10,15 @@ const ProductsPage = () => {
   const [filterTerms, setFilterTerms] = useState([]);
 
   useEffect(() => {
-    if (isFiltered !== true) {
-      console.log("it is not filtered");
-      getBoardsData().then((res) => {
-        setBoardsData(Object.entries(res));
-      });
-    } else {
+    if (isFiltered) {
       console.log("it is filtered");
       filterBoardsData(filterTerms).then((res) => {
         console.log(res);
+        setBoardsData(Object.entries(res));
+      });
+    } else {
+      console.log("it is not filtered");
+      getBoardsData().then((res) => {
         setBoardsData(Object.entries(res));
       });
     }

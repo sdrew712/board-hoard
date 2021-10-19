@@ -2,13 +2,16 @@ import React, { useState } from "react";
 import axios from "axios";
 import { searchBoardsData } from "./boardsData";
 
-const Search = () => {
+const Search = ({ setBoardsData }) => {
   const [searchTerm, setSearchTerm] = useState("");
 
   const handleSearchSubmit = async (e) => {
     e.preventDefault();
     try {
-      searchBoardsData(searchTerm);
+      searchBoardsData(searchTerm).then((res) => {
+        setBoardsData(Object.entries(res));
+        console.log(res);
+      });
     } catch (err) {
       console.error(err);
     }

@@ -9,7 +9,7 @@ const Search = () => {
     //do thing where you send searchterm off
 
     try {
-      const result = await axios.get("http://localhost:3001/api/search", {
+      const result = await axios.get("http://localhost:3001/api/filter", {
         params: { searchTerm: searchTerm },
       });
       console.log(result.data);

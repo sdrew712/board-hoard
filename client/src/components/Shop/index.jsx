@@ -13,7 +13,6 @@ const ShopPage = () => {
     if (isFiltered) {
       console.log("it is filtered");
       filterBoardsData(filterTerms).then((res) => {
-        console.log(res);
         setBoardsData(Object.entries(res));
       });
     } else {
@@ -45,7 +44,7 @@ const ShopPage = () => {
 
   return (
     <div>
-      <Search />
+      <Search setBoardsData={setBoardsData} />
       <Filter
         isFiltered={isFiltered}
         setIsFiltered={setIsFiltered}

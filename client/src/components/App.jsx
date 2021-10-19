@@ -9,7 +9,7 @@ import "../index.css";
 
 import TopBar from "./TopBar";
 import HomePage from "./HomePage";
-import ProductsPage from "./Products";
+import ProductsPage from "./Shop";
 import Cart from "./Cart";
 
 const App = () => {

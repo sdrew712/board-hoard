@@ -1,27 +1,32 @@
 import React, { useEffect } from "react";
 import { filterBoardsData } from "./boardsData";
 
-const Filter = ({ isFiltered, setIsFiltered, filterTerms, setFilterTerms }) => {
+const Filter = ({
+  isFiltered,
+  setIsFiltered,
+  brandFilterTerms,
+  setBrandFilterTerms,
+}) => {
   const handleFilterTerms = (buttonClicked) => {
-    if (filterTerms.includes(buttonClicked)) {
-      setFilterTerms(
-        filterTerms.filter((term) => {
+    if (brandFilterTerms.includes(buttonClicked)) {
+      setBrandFilterTerms(
+        brandFilterTerms.filter((term) => {
           return term !== buttonClicked;
         })
       );
     } else {
-      setFilterTerms([...filterTerms, buttonClicked]);
+      setBrandFilterTerms([...brandFilterTerms, buttonClicked]);
     }
   };
 
   useEffect(() => {
-    if (filterTerms.length === 0) {
+    if (brandFilterTerms.length === 0) {
       console.log("hi");
       setIsFiltered(false);
     } else {
       setIsFiltered(true);
     }
-  }, [filterTerms, setIsFiltered]);
+  }, [brandFilterTerms, setIsFiltered]);
 
   return (
     <div style={{ float: "left" }}>
@@ -30,7 +35,7 @@ const Filter = ({ isFiltered, setIsFiltered, filterTerms, setFilterTerms }) => {
         <h2>brand</h2>
         <button
           onClick={(e) => {
-            filterBoardsData(filterTerms);
+            filterBoardsData(brandFilterTerms);
             handleFilterTerms(e.target.innerText);
           }}
         >
@@ -38,7 +43,7 @@ const Filter = ({ isFiltered, setIsFiltered, filterTerms, setFilterTerms }) => {
         </button>
         <button
           onClick={(e) => {
-            filterBoardsData(filterTerms);
+            filterBoardsData(brandFilterTerms);
             handleFilterTerms(e.target.innerText);
           }}
         >
@@ -46,7 +51,7 @@ const Filter = ({ isFiltered, setIsFiltered, filterTerms, setFilterTerms }) => {
         </button>
         <button
           onClick={(e) => {
-            filterBoardsData(filterTerms);
+            filterBoardsData(brandFilterTerms);
             handleFilterTerms(e.target.innerText);
           }}
         >
@@ -54,7 +59,7 @@ const Filter = ({ isFiltered, setIsFiltered, filterTerms, setFilterTerms }) => {
         </button>
         <button
           onClick={(e) => {
-            filterBoardsData(filterTerms);
+            filterBoardsData(brandFilterTerms);
             handleFilterTerms(e.target.innerText);
           }}
         >
@@ -62,7 +67,7 @@ const Filter = ({ isFiltered, setIsFiltered, filterTerms, setFilterTerms }) => {
         </button>
         <button
           onClick={(e) => {
-            filterBoardsData(filterTerms);
+            filterBoardsData(brandFilterTerms);
             handleFilterTerms(e.target.innerText);
           }}
         >

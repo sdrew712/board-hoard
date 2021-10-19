@@ -7,12 +7,12 @@ import Filter from "./Filter";
 const ShopPage = () => {
   const [boardsData, setBoardsData] = useState([]);
   const [isFiltered, setIsFiltered] = useState(false);
-  const [filterTerms, setFilterTerms] = useState([]);
+  const [brandFilterTerms, setBrandFilterTerms] = useState([]);
 
   useEffect(() => {
     if (isFiltered) {
       console.log("it is filtered");
-      filterBoardsData(filterTerms).then((res) => {
+      filterBoardsData(brandFilterTerms).then((res) => {
         setBoardsData(Object.entries(res));
       });
     } else {
@@ -21,7 +21,7 @@ const ShopPage = () => {
         setBoardsData(Object.entries(res));
       });
     }
-  }, [isFiltered, filterTerms]);
+  }, [isFiltered, brandFilterTerms]);
 
   const boardRenderer = boardsData.map((data) => {
     return (
@@ -48,8 +48,8 @@ const ShopPage = () => {
       <Filter
         isFiltered={isFiltered}
         setIsFiltered={setIsFiltered}
-        filterTerms={filterTerms}
-        setFilterTerms={setFilterTerms}
+        brandFilterTerms={brandFilterTerms}
+        setBrandFilterTerms={setBrandFilterTerms}
       />
       <div
         style={{

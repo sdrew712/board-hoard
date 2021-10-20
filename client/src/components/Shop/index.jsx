@@ -6,8 +6,6 @@ import Filters from "./Filters";
 const ShopPage = () => {
   const [boardsData, setBoardsData] = useState([]);
   const [isFiltered, setIsFiltered] = useState(false);
-  const [brandFilterTerms, setBrandFilterTerms] = useState([]);
-  const [categoryFilterTerms, setCategoryFilterTerms] = useState([]);
 
   useEffect(() => {
     if (isFiltered === false) {
@@ -43,10 +41,6 @@ const ShopPage = () => {
         setBoardsData={setBoardsData}
         isFiltered={isFiltered}
         setIsFiltered={setIsFiltered}
-        brandFilterTerms={brandFilterTerms}
-        setBrandFilterTerms={setBrandFilterTerms}
-        categoryFilterTerms={categoryFilterTerms}
-        setCategoryFilterTerms={setCategoryFilterTerms}
       />
       <div
         style={{

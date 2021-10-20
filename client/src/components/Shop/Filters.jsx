@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { filterBoardsData } from "./boardsData";
 import FilterButton from "./FilterButton";
 import Search from "./Search";
@@ -8,11 +8,10 @@ const Filter = ({
   setBoardsData,
   isFiltered,
   setIsFiltered,
-  brandFilterTerms,
-  setBrandFilterTerms,
-  categoryFilterTerms,
-  setCategoryFilterTerms,
 }) => {
+  const [brandFilterTerms, setBrandFilterTerms] = useState([]);
+  const [categoryFilterTerms, setCategoryFilterTerms] = useState([]);
+
   //if button clicked is the same as one in the state array, change the array to remove it from the filter state
   const handleBrandFilterTerms = (buttonClicked) => {
     if (brandFilterTerms.includes(buttonClicked)) {

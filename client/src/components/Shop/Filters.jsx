@@ -31,11 +31,13 @@ const Filter = ({
       Filters
       <div>
         <button
-          onClick={() =>
+          onClick={() => {
             getBoardsData().then((res) => {
               setBoardsData(Object.entries(res));
-            })
-          }
+            });
+            setBrandFilterTerms([]);
+            setCategoryFilterTerms([]);
+          }}
         >
           Clear filters
         </button>

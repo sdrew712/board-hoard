@@ -38,13 +38,11 @@ const Filter = ({
     }
   };
 
-  useEffect(() => {
-    if (brandFilterTerms.length || categoryFilterTerms.length > 0) {
-      setIsFiltered(true);
-    } else {
-      setIsFiltered(false);
-    }
-  }, [brandFilterTerms, categoryFilterTerms, setIsFiltered]);
+  if (brandFilterTerms.length || categoryFilterTerms.length > 0) {
+    setIsFiltered(true);
+  } else {
+    setIsFiltered(false);
+  }
 
   useEffect(() => {
     if (isFiltered === true) {

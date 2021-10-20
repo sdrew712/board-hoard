@@ -12,33 +12,6 @@ const Filter = ({
   const [brandFilterTerms, setBrandFilterTerms] = useState([]);
   const [categoryFilterTerms, setCategoryFilterTerms] = useState([]);
 
-  //if button clicked is the same as one in the state array, change the array to remove it from the filter state
-  const handleBrandFilterTerms = (buttonClicked) => {
-    if (brandFilterTerms.includes(buttonClicked)) {
-      setBrandFilterTerms(
-        brandFilterTerms.filter((term) => {
-          return term !== buttonClicked;
-        })
-      );
-    }
-    //else if it is not a filter term yet, add it to the filter term state
-    else {
-      setBrandFilterTerms([...brandFilterTerms, buttonClicked]);
-    }
-  };
-
-  const handleCategoryFilterTerms = (buttonClicked) => {
-    if (categoryFilterTerms.includes(buttonClicked)) {
-      setCategoryFilterTerms(
-        categoryFilterTerms.filter((term) => {
-          return term !== buttonClicked;
-        })
-      );
-    } else {
-      setCategoryFilterTerms([...categoryFilterTerms, buttonClicked]);
-    }
-  };
-
   if (brandFilterTerms.length || categoryFilterTerms.length > 0) {
     setIsFiltered(true);
   } else {
@@ -71,37 +44,45 @@ const Filter = ({
 
         <h2>brand</h2>
         <FilterButton
-          handleFilterTermState={handleBrandFilterTerms}
+          filterTerms={brandFilterTerms}
+          setFilterTerms={setBrandFilterTerms}
           filterButtonText="Landyachtz"
         />
         <FilterButton
-          handleFilterTermState={handleBrandFilterTerms}
+          filterTerms={brandFilterTerms}
+          setFilterTerms={setBrandFilterTerms}
           filterButtonText="Zenit"
         />
         <FilterButton
-          handleFilterTermState={handleBrandFilterTerms}
+          filterTerms={brandFilterTerms}
+          setFilterTerms={setBrandFilterTerms}
           filterButtonText="Moonshine MFG"
         />
         <FilterButton
-          handleFilterTermState={handleBrandFilterTerms}
+          filterTerms={brandFilterTerms}
+          setFilterTerms={setBrandFilterTerms}
           filterButtonText="Loaded"
         />
         <FilterButton
-          handleFilterTermState={handleBrandFilterTerms}
+          filterTerms={brandFilterTerms}
+          setFilterTerms={setBrandFilterTerms}
           filterButtonText="Rayne"
         />
 
         <h2>category</h2>
         <FilterButton
-          handleFilterTermState={handleCategoryFilterTerms}
+          filterTerms={categoryFilterTerms}
+          setFilterTerms={setCategoryFilterTerms}
           filterButtonText="Dance"
         />
         <FilterButton
-          handleFilterTermState={handleCategoryFilterTerms}
+          filterTerms={categoryFilterTerms}
+          setFilterTerms={setCategoryFilterTerms}
           filterButtonText="Freestyle"
         />
         <FilterButton
-          handleFilterTermState={handleCategoryFilterTerms}
+          filterTerms={categoryFilterTerms}
+          setFilterTerms={setCategoryFilterTerms}
           filterButtonText="Downhill"
         />
       </div>

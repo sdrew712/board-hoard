@@ -27,15 +27,30 @@ app.get("/api/filter", async (req: Request, res: Response) => {
   });
 
   userSelectedCategories?.forEach((category: string) => {
-    categoryFilterArray.push({ category: category });
+    categoryFilterArray.push({
+      category: {
+        contains: category,
+      },
+    });
   });
 
-  const filteredBoards = await prisma.boards.findMany({
-    where: {
-      OR: brandFilterArray,
-      AND: categoryFilterArray,
-    },
-  });
+  let filteredBoards: Array<object> = [];
+
+  if (brandFilterArray.length > 0) {
+    filteredBoards = await prisma.boards.findMany({
+      where: {
+        OR: brandFilterArray,
+        AND: categoryFilterArray,
+      },
+    });
+  } else if (categoryFilterArray.length > 0) {
+    filteredBoards = await prisma.boards.findMany({
+      where: {
+        OR: categoryFilterArray,
+        AND: brandFilterArray,
+      },
+    });
+  }
 
   res.status(200).send(filteredBoards);
 });

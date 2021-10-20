@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Product from "./Product";
 import { getBoardsData } from "./boardsData";
-import Search from "./Search";
 import Filter from "./Filter";
 
 const ShopPage = () => {
@@ -39,7 +38,6 @@ const ShopPage = () => {
 
   return (
     <div>
-      <Search setBoardsData={setBoardsData} />
       <Filter
         getBoardsData={getBoardsData}
         setBoardsData={setBoardsData}

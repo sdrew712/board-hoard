@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { filterBoardsData } from "./boardsData";
 import FilterButton from "./FilterButton";
+import Search from "./Search";
 
 const Filter = ({
   getBoardsData,
@@ -66,6 +67,9 @@ const Filter = ({
         >
           Clear filters
         </button>
+
+        <Search setBoardsData={setBoardsData} />
+
         <h2>brand</h2>
         <FilterButton
           handleFilterTermState={handleBrandFilterTerms}

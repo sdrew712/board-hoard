@@ -1,5 +1,4 @@
 import React from "react";
-import { filterBoardsData } from "./boardsData";
 
 const FilterButton = ({
   filterTermState,
@@ -9,7 +8,6 @@ const FilterButton = ({
   return (
     <button
       onClick={(e) => {
-        filterBoardsData(filterTermState);
         // @ts-ignore
         handleFilterTermState(e.target.innerText);
       }}

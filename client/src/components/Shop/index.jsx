@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Product from "./Product";
-import { getBoardsData, filterBoardsData } from "./boardsData";
+import { getBoardsData } from "./boardsData";
 import Search from "./Search";
 import Filter from "./Filter";
 
@@ -8,20 +8,15 @@ const ShopPage = () => {
   const [boardsData, setBoardsData] = useState([]);
   const [isFiltered, setIsFiltered] = useState(false);
   const [brandFilterTerms, setBrandFilterTerms] = useState([]);
+  const [categoryFilterTerms, setCategoryFilterTerms] = useState([]);
 
   useEffect(() => {
-    if (isFiltered) {
-      console.log("it is filtered");
-      filterBoardsData(brandFilterTerms).then((res) => {
-        setBoardsData(Object.entries(res));
-      });
-    } else {
-      console.log("it is not filtered");
+    if (isFiltered === false) {
       getBoardsData().then((res) => {
         setBoardsData(Object.entries(res));
       });
     }
-  }, [isFiltered, brandFilterTerms]);
+  }, [isFiltered]);
 
   const boardRenderer = boardsData.map((data) => {
     return (
@@ -46,10 +41,13 @@ const ShopPage = () => {
     <div>
       <Search setBoardsData={setBoardsData} />
       <Filter
+        setBoardsData={setBoardsData}
         isFiltered={isFiltered}
         setIsFiltered={setIsFiltered}
         brandFilterTerms={brandFilterTerms}
         setBrandFilterTerms={setBrandFilterTerms}
+        categoryFilterTerms={categoryFilterTerms}
+        setCategoryFilterTerms={setCategoryFilterTerms}
       />
       <div
         style={{

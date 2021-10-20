@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { filterBoardsData } from "./boardsData";
+import FilterButton from "./FilterButton";
 
 const Filter = ({
   isFiltered,
@@ -7,7 +7,7 @@ const Filter = ({
   brandFilterTerms,
   setBrandFilterTerms,
 }) => {
-  const handleFilterTerms = (buttonClicked) => {
+  const handleBrandFilterTerms = (buttonClicked) => {
     if (brandFilterTerms.includes(buttonClicked)) {
       setBrandFilterTerms(
         brandFilterTerms.filter((term) => {
@@ -33,46 +33,31 @@ const Filter = ({
       Filters
       <div>
         <h2>brand</h2>
-        <button
-          onClick={(e) => {
-            filterBoardsData(brandFilterTerms);
-            handleFilterTerms(e.target.innerText);
-          }}
-        >
-          Landyachtz
-        </button>
-        <button
-          onClick={(e) => {
-            filterBoardsData(brandFilterTerms);
-            handleFilterTerms(e.target.innerText);
-          }}
-        >
-          Zenit
-        </button>
-        <button
-          onClick={(e) => {
-            filterBoardsData(brandFilterTerms);
-            handleFilterTerms(e.target.innerText);
-          }}
-        >
-          Moonshine MFG
-        </button>
-        <button
-          onClick={(e) => {
-            filterBoardsData(brandFilterTerms);
-            handleFilterTerms(e.target.innerText);
-          }}
-        >
-          Loaded
-        </button>
-        <button
-          onClick={(e) => {
-            filterBoardsData(brandFilterTerms);
-            handleFilterTerms(e.target.innerText);
-          }}
-        >
-          Rayne
-        </button>
+        <FilterButton
+          filterTermState={brandFilterTerms}
+          handleFilterTermState={handleBrandFilterTerms}
+          filterButtonText="Landyachtz"
+        />
+        <FilterButton
+          filterTermState={brandFilterTerms}
+          handleFilterTermState={handleBrandFilterTerms}
+          filterButtonText="Zenit"
+        />
+        <FilterButton
+          filterTermState={brandFilterTerms}
+          handleFilterTermState={handleBrandFilterTerms}
+          filterButtonText="Moonshine MFG"
+        />
+        <FilterButton
+          filterTermState={brandFilterTerms}
+          handleFilterTermState={handleBrandFilterTerms}
+          filterButtonText="Loaded"
+        />
+        <FilterButton
+          filterTermState={brandFilterTerms}
+          handleFilterTermState={handleBrandFilterTerms}
+          filterButtonText="Rayne"
+        />
       </div>
     </div>
   );

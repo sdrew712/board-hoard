@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Product from "./Product";
 import { getBoardsData } from "./boardsData";
-import Filter from "./Filter";
+import Filters from "./Filters";
 
 const ShopPage = () => {
   const [boardsData, setBoardsData] = useState([]);
@@ -38,7 +38,7 @@ const ShopPage = () => {
 
   return (
     <div>
-      <Filter
+      <Filters
         getBoardsData={getBoardsData}
         setBoardsData={setBoardsData}
         isFiltered={isFiltered}

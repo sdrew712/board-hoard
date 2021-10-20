@@ -3,6 +3,7 @@ import { filterBoardsData } from "./boardsData";
 import FilterButton from "./FilterButton";
 
 const Filter = ({
+  getBoardsData,
   setBoardsData,
   isFiltered,
   setIsFiltered,
@@ -56,6 +57,15 @@ const Filter = ({
     <div style={{ float: "left" }}>
       Filters
       <div>
+        <button
+          onClick={() =>
+            getBoardsData().then((res) => {
+              setBoardsData(Object.entries(res));
+            })
+          }
+        >
+          Clear filters
+        </button>
         <h2>brand</h2>
         <FilterButton
           handleFilterTermState={handleBrandFilterTerms}

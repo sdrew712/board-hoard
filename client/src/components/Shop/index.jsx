@@ -41,6 +41,7 @@ const ShopPage = () => {
     <div>
       <Search setBoardsData={setBoardsData} />
       <Filter
+        getBoardsData={getBoardsData}
         setBoardsData={setBoardsData}
         isFiltered={isFiltered}
         setIsFiltered={setIsFiltered}

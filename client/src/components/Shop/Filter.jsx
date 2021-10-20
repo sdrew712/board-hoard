@@ -60,44 +60,36 @@ const Filter = ({
       <div>
         <h2>brand</h2>
         <FilterButton
-          filterTermState={brandFilterTerms}
           handleFilterTermState={handleBrandFilterTerms}
           filterButtonText="Landyachtz"
         />
         <FilterButton
-          filterTermState={brandFilterTerms}
           handleFilterTermState={handleBrandFilterTerms}
           filterButtonText="Zenit"
         />
         <FilterButton
-          filterTermState={brandFilterTerms}
           handleFilterTermState={handleBrandFilterTerms}
           filterButtonText="Moonshine MFG"
         />
         <FilterButton
-          filterTermState={brandFilterTerms}
           handleFilterTermState={handleBrandFilterTerms}
           filterButtonText="Loaded"
         />
         <FilterButton
-          filterTermState={brandFilterTerms}
           handleFilterTermState={handleBrandFilterTerms}
           filterButtonText="Rayne"
         />
 
         <h2>category</h2>
         <FilterButton
-          filterTermState={categoryFilterTerms}
           handleFilterTermState={handleCategoryFilterTerms}
           filterButtonText="Dance"
         />
         <FilterButton
-          filterTermState={categoryFilterTerms}
           handleFilterTermState={handleCategoryFilterTerms}
           filterButtonText="Freestyle"
         />
         <FilterButton
-          filterTermState={categoryFilterTerms}
           handleFilterTermState={handleCategoryFilterTerms}
           filterButtonText="Downhill"
         />

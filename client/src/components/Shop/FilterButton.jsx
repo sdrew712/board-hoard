@@ -1,10 +1,6 @@
 import React from "react";
 
-const FilterButton = ({
-  filterTermState,
-  handleFilterTermState,
-  filterButtonText,
-}) => {
+const FilterButton = ({ handleFilterTermState, filterButtonText }) => {
   return (
     <button
       onClick={(e) => {

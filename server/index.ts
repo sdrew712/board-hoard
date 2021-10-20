@@ -16,21 +16,24 @@ app.get("/api/boards", async (req: Request, res: Response) => {
 });
 
 app.get("/api/filter", async (req: Request, res: Response) => {
-  console.log(req.query);
+  const userSelectedBrands: any = req.query.brandFilterTerms;
+  const userSelectedCategories: any = req.query.categoryFilterTerms;
 
-  const brandsArray: any = req.query.brandFilterTerms;
+  const brandFilterArray: Array<any> = [];
+  const categoryFilterArray: Array<any> = [];
 
-  const filterArray: Array<any> = [];
-
-  brandsArray?.forEach((brand: string) => {
-    filterArray.push({ brand: brand });
+  userSelectedBrands?.forEach((brand: string) => {
+    brandFilterArray.push({ brand: brand });
   });
 
-  console.log(filterArray);
+  userSelectedCategories?.forEach((category: string) => {
+    categoryFilterArray.push({ category: category });
+  });
 
   const filteredBoards = await prisma.boards.findMany({
     where: {
-      OR: filterArray,
+      OR: brandFilterArray,
+      AND: categoryFilterArray,
     },
   });
 

@@ -50,7 +50,7 @@ const ShopPage = () => {
           flexWrap: "wrap",
         }}
       >
-        {boardRenderer}
+        {boardsData.length > 0 ? boardRenderer : <p>No boards found</p>}
       </div>
     </div>
   );

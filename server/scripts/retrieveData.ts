@@ -28,18 +28,19 @@ export const getFilteredBoards = async (req: Request, res: Response) => {
 
   let filteredBoards: Array<object> = [];
 
-  if (brandFilterArray.length > 0) {
+  if (brandFilterArray.length || categoryFilterArray.length > 0) {
     filteredBoards = await prisma.boards.findMany({
       where: {
-        OR: brandFilterArray,
-        AND: [{ OR: categoryFilterArray }],
-      },
-    });
-  } else if (categoryFilterArray.length > 0) {
-    filteredBoards = await prisma.boards.findMany({
-      where: {
-        OR: categoryFilterArray,
-        AND: [{ OR: brandFilterArray }],
+        OR: [
+          {
+            OR: categoryFilterArray,
+            AND: [{ OR: brandFilterArray }],
+          },
+          {
+            OR: brandFilterArray,
+            AND: [{ OR: categoryFilterArray }],
+          },
+        ],
       },
     });
   }

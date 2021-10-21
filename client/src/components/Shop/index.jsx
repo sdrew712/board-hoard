@@ -34,6 +34,14 @@ const ShopPage = () => {
     );
   });
 
+  const filterErrorDisplay = () => {
+    if (isFiltered === false || boardRenderer.length > 0) {
+      return boardRenderer;
+    } else {
+      return <p>No boards found</p>;
+    }
+  };
+
   return (
     <div>
       <Filters
@@ -50,7 +58,7 @@ const ShopPage = () => {
           flexWrap: "wrap",
         }}
       >
-        {boardsData.length > 0 ? boardRenderer : <p>No boards found</p>}
+        {filterErrorDisplay()}
       </div>
     </div>
   );

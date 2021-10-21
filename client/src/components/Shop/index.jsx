@@ -35,7 +35,7 @@ const ShopPage = () => {
   });
 
   const filterErrorDisplay = () => {
-    if (isFiltered === false || boardRenderer.length > 0) {
+    if (isFiltered === false || boardsData.length > 0) {
       return boardRenderer;
     } else {
       return <p>No boards found</p>;

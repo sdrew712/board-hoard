@@ -12,11 +12,13 @@ const Filter = ({
   const [brandFilterTerms, setBrandFilterTerms] = useState([]);
   const [categoryFilterTerms, setCategoryFilterTerms] = useState([]);
 
-  if (brandFilterTerms.length || categoryFilterTerms.length > 0) {
-    setIsFiltered(true);
-  } else {
-    setIsFiltered(false);
-  }
+  useEffect(() => {
+    if (brandFilterTerms.length || categoryFilterTerms.length > 0) {
+      setIsFiltered(true);
+    } else {
+      setIsFiltered(false);
+    }
+  }, [setIsFiltered, brandFilterTerms, categoryFilterTerms]);
 
   useEffect(() => {
     if (isFiltered === true) {

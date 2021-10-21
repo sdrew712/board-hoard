@@ -19,7 +19,7 @@ const Search = ({ setBoardsData }) => {
 
   return (
     <div>
-      <form onSubmit={() => handleSearchSubmit(searchTerm)}>
+      <form onSubmit={handleSearchSubmit}>
         <label htmlFor="search"></label>
         <input
           type="text"

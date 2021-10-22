@@ -1,7 +1,9 @@
 import React from "react";
 
-const ProductPage = () => {
-  return <div>prdouce page</div>;
+const ProductPage = ({ location }) => {
+  const { description = "defaultValue" } = location.state || {};
+
+  return <div>{description}</div>;
 };
 
 export default ProductPage;

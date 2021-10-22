@@ -3,30 +3,26 @@ import { filterBoardsData } from "./boardsData";
 import FilterButton from "./FilterButton";
 import Search from "./Search";
 
-const Filter = ({
-  getBoardsData,
-  setBoardsData,
-  isFiltered,
-  setIsFiltered,
-}) => {
+const Filter = ({ getBoardsData, setBoardsData, isFiltered, setIsFiltered }) => {
   const [brandFilterTerms, setBrandFilterTerms] = useState([]);
   const [categoryFilterTerms, setCategoryFilterTerms] = useState([]);
+  const [flexFilterTerms, setFlexFilterTerms] = useState([]);
 
   useEffect(() => {
-    if (brandFilterTerms.length || categoryFilterTerms.length > 0) {
+    if (brandFilterTerms.length || categoryFilterTerms.length > 0 || flexFilterTerms.length > 0) {
       setIsFiltered(true);
     } else {
       setIsFiltered(false);
     }
-  }, [setIsFiltered, brandFilterTerms, categoryFilterTerms]);
+  }, [setIsFiltered, brandFilterTerms, categoryFilterTerms, flexFilterTerms]);
 
   useEffect(() => {
     if (isFiltered === true) {
-      filterBoardsData(brandFilterTerms, categoryFilterTerms).then((res) => {
+      filterBoardsData(brandFilterTerms, categoryFilterTerms, flexFilterTerms).then((res) => {
         setBoardsData(Object.entries(res));
       });
     }
-  }, [setBoardsData, isFiltered, brandFilterTerms, categoryFilterTerms]);
+  }, [setBoardsData, isFiltered, brandFilterTerms, categoryFilterTerms, flexFilterTerms]);
 
   return (
     <div style={{ float: "left" }}>
@@ -39,6 +35,7 @@ const Filter = ({
             });
             setBrandFilterTerms([]);
             setCategoryFilterTerms([]);
+            setFlexFilterTerms([]);
           }}
         >
           Clear filters
@@ -88,6 +85,23 @@ const Filter = ({
           filterTerms={categoryFilterTerms}
           setFilterTerms={setCategoryFilterTerms}
           filterButtonText="Downhill"
+        />
+
+        <h2>flex</h2>
+        <FilterButton
+          filterTerms={flexFilterTerms}
+          setFilterTerms={setFlexFilterTerms}
+          filterButtonText="Soft"
+        />
+        <FilterButton
+          filterTerms={flexFilterTerms}
+          setFilterTerms={setFlexFilterTerms}
+          filterButtonText="Medium"
+        />
+        <FilterButton
+          filterTerms={flexFilterTerms}
+          setFilterTerms={setFlexFilterTerms}
+          filterButtonText="Stiff"
         />
       </div>
     </div>

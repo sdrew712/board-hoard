@@ -25,6 +25,7 @@ const Filter = ({ getBoardsData, setBoardsData, isFiltered, setIsFiltered }) => 
             getBoardsData().then((res) => {
               setBoardsData(Object.entries(res));
             });
+            setIsFiltered(false);
             setBrandFilterTerms([]);
             setCategoryFilterTerms([]);
             setFlexFilterTerms([]);

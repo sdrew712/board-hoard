@@ -34,9 +34,7 @@ const ShopPage = () => {
     );
   });
 
-  console.log(isFiltered);
-
-  const filterErrorDisplay = () => {
+  const boardsRenderer = () => {
     if (isFiltered === false || boardsData.length > 0) {
       return boardRenderer;
     } else {
@@ -60,7 +58,7 @@ const ShopPage = () => {
           flexWrap: "wrap",
         }}
       >
-        {filterErrorDisplay()}
+        {boardsRenderer()}
       </div>
     </div>
   );

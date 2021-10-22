@@ -9,14 +9,6 @@ const Filter = ({ getBoardsData, setBoardsData, isFiltered, setIsFiltered }) => 
   const [flexFilterTerms, setFlexFilterTerms] = useState([]);
 
   useEffect(() => {
-    if (brandFilterTerms.length || categoryFilterTerms.length > 0 || flexFilterTerms.length > 0) {
-      setIsFiltered(true);
-    } else {
-      setIsFiltered(false);
-    }
-  }, [setIsFiltered, brandFilterTerms, categoryFilterTerms, flexFilterTerms]);
-
-  useEffect(() => {
     if (isFiltered === true) {
       filterBoardsData(brandFilterTerms, categoryFilterTerms, flexFilterTerms).then((res) => {
         setBoardsData(Object.entries(res));
@@ -45,26 +37,31 @@ const Filter = ({ getBoardsData, setBoardsData, isFiltered, setIsFiltered }) => 
 
         <h2>brand</h2>
         <FilterButton
+          setIsFiltered={setIsFiltered}
           filterTerms={brandFilterTerms}
           setFilterTerms={setBrandFilterTerms}
           filterButtonText="Landyachtz"
         />
         <FilterButton
+          setIsFiltered={setIsFiltered}
           filterTerms={brandFilterTerms}
           setFilterTerms={setBrandFilterTerms}
           filterButtonText="Zenit"
         />
         <FilterButton
+          setIsFiltered={setIsFiltered}
           filterTerms={brandFilterTerms}
           setFilterTerms={setBrandFilterTerms}
           filterButtonText="Moonshine MFG"
         />
         <FilterButton
+          setIsFiltered={setIsFiltered}
           filterTerms={brandFilterTerms}
           setFilterTerms={setBrandFilterTerms}
           filterButtonText="Loaded"
         />
         <FilterButton
+          setIsFiltered={setIsFiltered}
           filterTerms={brandFilterTerms}
           setFilterTerms={setBrandFilterTerms}
           filterButtonText="Rayne"
@@ -72,16 +69,19 @@ const Filter = ({ getBoardsData, setBoardsData, isFiltered, setIsFiltered }) => 
 
         <h2>category</h2>
         <FilterButton
+          setIsFiltered={setIsFiltered}
           filterTerms={categoryFilterTerms}
           setFilterTerms={setCategoryFilterTerms}
           filterButtonText="Dance"
         />
         <FilterButton
+          setIsFiltered={setIsFiltered}
           filterTerms={categoryFilterTerms}
           setFilterTerms={setCategoryFilterTerms}
           filterButtonText="Freestyle"
         />
         <FilterButton
+          setIsFiltered={setIsFiltered}
           filterTerms={categoryFilterTerms}
           setFilterTerms={setCategoryFilterTerms}
           filterButtonText="Downhill"
@@ -89,16 +89,19 @@ const Filter = ({ getBoardsData, setBoardsData, isFiltered, setIsFiltered }) => 
 
         <h2>flex</h2>
         <FilterButton
+          setIsFiltered={setIsFiltered}
           filterTerms={flexFilterTerms}
           setFilterTerms={setFlexFilterTerms}
           filterButtonText="Soft"
         />
         <FilterButton
+          setIsFiltered={setIsFiltered}
           filterTerms={flexFilterTerms}
           setFilterTerms={setFlexFilterTerms}
           filterButtonText="Medium"
         />
         <FilterButton
+          setIsFiltered={setIsFiltered}
           filterTerms={flexFilterTerms}
           setFilterTerms={setFlexFilterTerms}
           filterButtonText="Stiff"

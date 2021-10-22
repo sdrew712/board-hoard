@@ -1,6 +1,6 @@
 import React from "react";
 
-const FilterButton = ({ filterTerms, setFilterTerms, filterButtonText }) => {
+const FilterButton = ({ setIsFiltered, filterTerms, setFilterTerms, filterButtonText }) => {
   const handleFilterTerms = (buttonClicked, filterTerms, setFilterTerms) => {
     //if button clicked is the same as one in the state array, change the array to remove it from the filter state
     if (filterTerms.includes(buttonClicked)) {
@@ -18,8 +18,9 @@ const FilterButton = ({ filterTerms, setFilterTerms, filterButtonText }) => {
 
   return (
     <button
-      onClick={(e) => {
+      onClick={() => {
         handleFilterTerms(filterButtonText, filterTerms, setFilterTerms);
+        setIsFiltered(true);
       }}
     >
       {filterButtonText}

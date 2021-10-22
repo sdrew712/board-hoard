@@ -10,9 +10,11 @@ export const getAllBoards = async (req: Request, res: Response) => {
 export const getFilteredBoards = async (req: Request, res: Response) => {
   const userSelectedBrands: any = req.query.brandFilterTerms;
   const userSelectedCategories: any = req.query.categoryFilterTerms;
+  const userSelectedFlex: any = req.query.flexFilterTerms;
 
   const brandFilterArray: Array<any> = [];
   const categoryFilterArray: Array<any> = [];
+  const flexFilterArray: Array<any> = [];
 
   userSelectedBrands?.forEach((brand: string) => {
     brandFilterArray.push({ brand: brand });
@@ -20,9 +22,13 @@ export const getFilteredBoards = async (req: Request, res: Response) => {
 
   userSelectedCategories?.forEach((category: string) => {
     categoryFilterArray.push({
-      category: {
-        contains: category,
-      },
+      category: category,
+    });
+  });
+
+  userSelectedFlex?.forEach((flex: string) => {
+    flexFilterArray.push({
+      flex: flex,
     });
   });
 
@@ -34,13 +40,14 @@ export const getFilteredBoards = async (req: Request, res: Response) => {
         OR: [
           {
             OR: categoryFilterArray,
-            AND: [{ OR: brandFilterArray }],
+            AND: [{ OR: brandFilterArray }, { AND: flexFilterArray }],
           },
           {
             OR: brandFilterArray,
-            AND: [{ OR: categoryFilterArray }],
+            AND: [{ OR: categoryFilterArray }, { AND: flexFilterArray }],
           },
         ],
+        AND: flexFilterArray,
       },
     });
   }

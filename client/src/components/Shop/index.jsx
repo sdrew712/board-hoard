@@ -29,7 +29,7 @@ const ShopPage = () => {
         // length={data[1].length}
         // width={data[1].width}
         // wheelbase={data[1].wheelbase}
-        // flex={data[1].flex}
+        flex={data[1].flex}
       />
     );
   });

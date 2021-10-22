@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import ProductPage from "./ProductPage";
 
-const Product = ({ imageURL, name, price, brand, category }) => {
+const Product = ({ imageURL, name, price, brand, category, flex }) => {
   return (
     <>
       <Router>
@@ -15,6 +15,7 @@ const Product = ({ imageURL, name, price, brand, category }) => {
           <p>{category}</p>
           <h3>{name}</h3>
           <p>{price}</p>
+          <p>{flex}</p>
         </Link>
       </Router>
     </>

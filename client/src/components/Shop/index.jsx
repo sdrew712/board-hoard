@@ -25,9 +25,9 @@ const ShopPage = () => {
         category={data[1].category}
         imageURL={data[1].image_url}
         description={data[1].description}
-        // length={data[1].length}
-        // width={data[1].width}
-        // wheelbase={data[1].wheelbase}
+        length={data[1].length}
+        width={data[1].width}
+        wheelbase={data[1].wheelbase}
         flex={data[1].flex}
       />
     );

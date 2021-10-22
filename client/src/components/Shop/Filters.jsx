@@ -34,7 +34,7 @@ const Filter = ({ getBoardsData, setBoardsData, isFiltered, setIsFiltered }) => 
           Clear filters
         </button>
 
-        <Search setBoardsData={setBoardsData} />
+        <Search setBoardsData={setBoardsData} setIsFiltered={setIsFiltered} />
 
         <h2>brand</h2>
         <FilterButton

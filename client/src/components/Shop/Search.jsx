@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import axios from "axios";
 import { searchBoardsData } from "./boardsData";
 
-const Search = ({ setBoardsData }) => {
+const Search = ({ setBoardsData, setIsFiltered }) => {
   const [searchTerm, setSearchTerm] = useState("");
 
   const handleSearchSubmit = async (e) => {
@@ -15,6 +14,7 @@ const Search = ({ setBoardsData }) => {
     } catch (err) {
       console.error(err);
     }
+    setIsFiltered(true);
   };
 
   return (

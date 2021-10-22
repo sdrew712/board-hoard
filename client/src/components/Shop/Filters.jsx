@@ -3,7 +3,7 @@ import { filterBoardsData } from "./boardsData";
 import FilterButton from "./FilterButton";
 import Search from "./Search";
 
-const Filter = ({ getBoardsData, setBoardsData, isFiltered, setIsFiltered }) => {
+const Filters = ({ getBoardsData, setBoardsData, isFiltered, setIsFiltered }) => {
   const [brandFilterTerms, setBrandFilterTerms] = useState([]);
   const [categoryFilterTerms, setCategoryFilterTerms] = useState([]);
   const [flexFilterTerms, setFlexFilterTerms] = useState([]);
@@ -112,4 +112,4 @@ const Filter = ({ getBoardsData, setBoardsData, isFiltered, setIsFiltered }) => 
   );
 };
 
-export default Filter;
+export default Filters;

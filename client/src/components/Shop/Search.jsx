@@ -6,6 +6,7 @@ const Search = ({ setBoardsData, setIsFiltered }) => {
 
   const handleSearchSubmit = async (e) => {
     e.preventDefault();
+    setIsFiltered(true);
     try {
       searchBoardsData(searchTerm).then((res) => {
         setBoardsData(Object.entries(res));
@@ -14,7 +15,6 @@ const Search = ({ setBoardsData, setIsFiltered }) => {
     } catch (err) {
       console.error(err);
     }
-    setIsFiltered(true);
   };
 
   return (

@@ -34,6 +34,8 @@ const ShopPage = () => {
     );
   });
 
+  console.log(isFiltered);
+
   const filterErrorDisplay = () => {
     if (isFiltered === false || boardsData.length > 0) {
       return boardRenderer;

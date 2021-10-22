@@ -8,10 +8,8 @@ export const getAllBoards = async (req: Request, res: Response) => {
 };
 
 export const getFilteredBoards = async (req: Request, res: Response) => {
-  const { brandFilterTerms, categoryFilterTerms, flexFilterTerms } = req.query as Record<
-    string,
-    string[]
-  >;
+  const { brandFilterTerms, categoryFilterTerms, flexFilterTerms, searchTerm } =
+    req.query as Record<string, string[]>;
 
   const brandFilterArray = brandFilterTerms?.map((brand) => ({ brand }));
   const categoryFilterArray = categoryFilterTerms?.map((category) => ({ category }));
@@ -19,39 +17,41 @@ export const getFilteredBoards = async (req: Request, res: Response) => {
 
   const filteredBoards = await prisma.boards.findMany({
     where: {
-      AND: [{ OR: brandFilterArray }, { OR: categoryFilterArray }, { OR: flexFilterArray }],
-    },
-  });
-
-  res.status(200).send(filteredBoards);
-};
-
-export const getSearchedBoards = async (req: Request, res: Response) => {
-  const searchTerm = req.query.term;
-
-  const searchResults = await prisma.boards.findMany({
-    where: {
-      OR: [
+      AND: [
+        { OR: brandFilterArray },
+        { OR: categoryFilterArray },
+        { OR: flexFilterArray },
         {
-          name: {
-            contains: searchTerm,
-            mode: "insensitive",
-          },
-        },
-        {
-          brand: {
-            contains: searchTerm,
-            mode: "insensitive",
-          },
-        },
-        {
-          category: {
-            contains: searchTerm,
-            mode: "insensitive",
-          },
+          OR: [
+            {
+              name: {
+                contains: searchTerm,
+                mode: "insensitive",
+              },
+            },
+            {
+              brand: {
+                contains: searchTerm,
+                mode: "insensitive",
+              },
+            },
+            {
+              category: {
+                contains: searchTerm,
+                mode: "insensitive",
+              },
+            },
+            {
+              flex: {
+                contains: searchTerm,
+                mode: "insensitive",
+              },
+            },
+          ],
         },
       ],
     },
   });
-  res.status(200).send(searchResults);
+
+  res.status(200).send(filteredBoards);
 };

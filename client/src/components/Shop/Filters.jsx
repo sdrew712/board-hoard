@@ -8,13 +8,28 @@ const Filters = ({ getBoardsData, setBoardsData, isFiltered, setIsFiltered }) =>
   const [categoryFilterTerms, setCategoryFilterTerms] = useState([]);
   const [flexFilterTerms, setFlexFilterTerms] = useState([]);
 
+  const [searchTerm, setSearchTerm] = useState("");
+  const [debouncedSearchTerm, setDebouncedSearchTerm] = useState("");
+
   useEffect(() => {
     if (isFiltered === true) {
-      filterBoardsData(brandFilterTerms, categoryFilterTerms, flexFilterTerms).then((res) => {
+      filterBoardsData(
+        brandFilterTerms,
+        categoryFilterTerms,
+        flexFilterTerms,
+        debouncedSearchTerm
+      ).then((res) => {
         setBoardsData(Object.entries(res));
       });
     }
-  }, [setBoardsData, isFiltered, brandFilterTerms, categoryFilterTerms, flexFilterTerms]);
+  }, [
+    setBoardsData,
+    isFiltered,
+    brandFilterTerms,
+    categoryFilterTerms,
+    flexFilterTerms,
+    debouncedSearchTerm,
+  ]);
 
   return (
     <div style={{ float: "left" }}>
@@ -29,12 +44,18 @@ const Filters = ({ getBoardsData, setBoardsData, isFiltered, setIsFiltered }) =>
             setBrandFilterTerms([]);
             setCategoryFilterTerms([]);
             setFlexFilterTerms([]);
+            setSearchTerm("");
           }}
         >
           Clear filters
         </button>
 
-        <Search setBoardsData={setBoardsData} setIsFiltered={setIsFiltered} />
+        <Search
+          searchTerm={searchTerm}
+          setSearchTerm={setSearchTerm}
+          setIsFiltered={setIsFiltered}
+          setDebouncedSearchTerm={setDebouncedSearchTerm}
+        />
 
         <h2>brand</h2>
         <FilterButton

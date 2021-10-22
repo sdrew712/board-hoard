@@ -1,38 +1,29 @@
-import React, { useState } from "react";
-import { searchBoardsData } from "./boardsData";
+import React, { useEffect } from "react";
 
-const Search = ({ setBoardsData, setIsFiltered }) => {
-  const [searchTerm, setSearchTerm] = useState("");
+const Search = ({ setIsFiltered, searchTerm, setSearchTerm, setDebouncedSearchTerm }) => {
+  useEffect(() => {
+    const timerId = setTimeout(() => {
+      setDebouncedSearchTerm(searchTerm);
+    }, 500);
 
-  const handleSearchSubmit = async (e) => {
-    e.preventDefault();
-    setIsFiltered(true);
-    try {
-      searchBoardsData(searchTerm).then((res) => {
-        setBoardsData(Object.entries(res));
-        console.log(res);
-      });
-    } catch (err) {
-      console.error(err);
-    }
-  };
+    return () => {
+      clearTimeout(timerId);
+    };
+  }, [searchTerm, setDebouncedSearchTerm]);
 
   return (
     <div>
-      <form onSubmit={handleSearchSubmit}>
-        <label htmlFor="search"></label>
-        <input
-          type="text"
-          id="search"
-          name="searchtext"
-          placeholder="Search"
-          value={searchTerm}
-          onChange={({ target }) => setSearchTerm(target.value)}
-        />
-        <button type="submit" onClick={handleSearchSubmit}>
-          Send your message
-        </button>
-      </form>
+      <input
+        type="text"
+        id="search"
+        name="searchtext"
+        placeholder="Search"
+        value={searchTerm}
+        onChange={({ target }) => {
+          setSearchTerm(target.value);
+          setIsFiltered(true);
+        }}
+      />
     </div>
   );
 };

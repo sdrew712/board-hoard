@@ -8,49 +8,21 @@ export const getAllBoards = async (req: Request, res: Response) => {
 };
 
 export const getFilteredBoards = async (req: Request, res: Response) => {
-  const userSelectedBrands: any = req.query.brandFilterTerms;
-  const userSelectedCategories: any = req.query.categoryFilterTerms;
-  const userSelectedFlex: any = req.query.flexFilterTerms;
+  const { brandFilterTerms, categoryFilterTerms, flexFilterTerms } = req.query as Record<
+    string,
+    string[]
+  >;
 
-  const brandFilterArray: Array<any> = [];
-  const categoryFilterArray: Array<any> = [];
-  const flexFilterArray: Array<any> = [];
+  const brandFilterArray = brandFilterTerms?.map((brand) => ({ brand }));
+  const categoryFilterArray = categoryFilterTerms?.map((category) => ({ category }));
+  const flexFilterArray = flexFilterTerms?.map((flex) => ({ flex }));
 
-  userSelectedBrands?.forEach((brand: string) => {
-    brandFilterArray.push({ brand: brand });
+  const filteredBoards = await prisma.boards.findMany({
+    where: {
+      AND: [{ OR: brandFilterArray }, { OR: categoryFilterArray }, { OR: flexFilterArray }],
+      // OR: brandFilterArray,
+    },
   });
-
-  userSelectedCategories?.forEach((category: string) => {
-    categoryFilterArray.push({
-      category: category,
-    });
-  });
-
-  userSelectedFlex?.forEach((flex: string) => {
-    flexFilterArray.push({
-      flex: flex,
-    });
-  });
-
-  let filteredBoards: Array<object> = [];
-
-  if (brandFilterArray.length || categoryFilterArray.length > 0) {
-    filteredBoards = await prisma.boards.findMany({
-      where: {
-        OR: [
-          {
-            OR: categoryFilterArray,
-            AND: [{ OR: brandFilterArray }, { AND: flexFilterArray }],
-          },
-          {
-            OR: brandFilterArray,
-            AND: [{ OR: categoryFilterArray }, { AND: flexFilterArray }],
-          },
-        ],
-        AND: flexFilterArray,
-      },
-    });
-  }
 
   res.status(200).send(filteredBoards);
 };

@@ -20,7 +20,6 @@ export const getFilteredBoards = async (req: Request, res: Response) => {
   const filteredBoards = await prisma.boards.findMany({
     where: {
       AND: [{ OR: brandFilterArray }, { OR: categoryFilterArray }, { OR: flexFilterArray }],
-      // OR: brandFilterArray,
     },
   });
 

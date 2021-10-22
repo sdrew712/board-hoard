@@ -1,7 +1,9 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
 
-const ProductPage = ({ location }) => {
-  const { description = "defaultValue" } = location.state || {};
+const ProductPage = () => {
+  const location = useLocation();
+  const { description } = location.state;
 
   return <div>{description}</div>;
 };

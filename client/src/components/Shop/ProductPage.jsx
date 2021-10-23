@@ -32,10 +32,6 @@ const ProductPage = (props) => {
         <p>Wheelbase: {boardData.wheelbase}"</p>
         <p>Flex: {boardData.flex}</p>
       </div>
-
-      <form action="/create-checkout-session" method="POST">
-        <button type="submit">Checkout</button>
-      </form>
     </div>
   );
 };

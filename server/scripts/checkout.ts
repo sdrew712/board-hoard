@@ -1,7 +1,11 @@
 import { Request, Response } from "express";
+import { env } from "process";
+const { SK_TEST } = env;
+
+console.log(SK_TEST);
 
 // @ts-ignore
-const stripe = require("stripe")();
+const stripe = require("stripe")(SK_TEST);
 
 export const checkout = async (req: Request, res: Response) => {
   const session = await stripe.checkout.sessions.create({

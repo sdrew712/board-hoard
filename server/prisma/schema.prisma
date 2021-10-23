@@ -15,8 +15,8 @@ model boards {
   category    String?  @db.VarChar
   image_url   String?  @db.VarChar
   description String?  @db.VarChar
-  length      Decimal? @db.Decimal
-  width       Decimal? @db.Decimal
-  wheelbase   Decimal? @db.Decimal
+  length      Decimal? @db.Decimal(5, 3)
+  width       Decimal? @db.Decimal(5, 3)
+  wheelbase   Decimal? @db.Decimal(5, 3)
   flex        String?  @db.VarChar
 }

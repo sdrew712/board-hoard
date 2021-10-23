@@ -1,37 +1,36 @@
-import React, { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+// @ts-nocheck
+import React, { useState, useEffect } from "react";
 import { getSingleBoard } from "./boardsData";
 
 const ProductPage = (props) => {
+  const [boardData, setBoardData] = useState({});
+
   //get board id from URL
   const boardId = props.location.pathname.substring(6, 7);
-  console.log(boardId);
 
   useEffect(() => {
-    getSingleBoard(boardId).then((res) => console.log(res));
+    getSingleBoard(boardId).then((res) => {
+      setBoardData(res);
+    });
   }, [boardId]);
-
-  const location = useLocation();
-  // @ts-ignore
-  const { imageURL, name, price, brand, category, flex, description, length, width, wheelbase } = location.state;
 
   return (
     <div>
-      <img src={imageURL} alt={`${name} deck`} style={{ width: "250px" }} />
+      <img src={boardData.image_url} alt={`${boardData.name} deck`} style={{ width: "250px" }} />
 
       <div>
-        <h3>{name}</h3>
-        <p>${price}</p>
-        <p>{description}</p>
+        <h3>{boardData.name}</h3>
+        <p>${boardData.price}</p>
+        <p>{boardData.description}</p>
       </div>
 
       <div>
-        <p>{brand}</p>
-        <p>{category}</p>
-        <p>Length {length}"</p>
-        <p>Width {width}"</p>
-        <p>Wheelbase: {wheelbase}"</p>
-        <p>Flex: {flex}</p>
+        <p>{boardData.brand}</p>
+        <p>{boardData.category}</p>
+        <p>Length {boardData.length}"</p>
+        <p>Width {boardData.width}"</p>
+        <p>Wheelbase: {boardData.wheelbase}"</p>
+        <p>Flex: {boardData.flex}</p>
       </div>
     </div>
   );

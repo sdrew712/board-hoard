@@ -12,24 +12,20 @@ const Filters = ({ getBoardsData, setBoardsData, isFiltered, setIsFiltered }) =>
   const [debouncedSearchTerm, setDebouncedSearchTerm] = useState("");
 
   useEffect(() => {
+    if (debouncedSearchTerm.toLowerCase() === "longboard") {
+      alert("What are you even searching for?");
+      setDebouncedSearchTerm("");
+      setSearchTerm("");
+    }
+  }, [debouncedSearchTerm]);
+
+  useEffect(() => {
     if (isFiltered === true) {
-      filterBoardsData(
-        brandFilterTerms,
-        categoryFilterTerms,
-        flexFilterTerms,
-        debouncedSearchTerm
-      ).then((res) => {
+      filterBoardsData(brandFilterTerms, categoryFilterTerms, flexFilterTerms, debouncedSearchTerm).then((res) => {
         setBoardsData(Object.entries(res));
       });
     }
-  }, [
-    setBoardsData,
-    isFiltered,
-    brandFilterTerms,
-    categoryFilterTerms,
-    flexFilterTerms,
-    debouncedSearchTerm,
-  ]);
+  }, [setBoardsData, isFiltered, brandFilterTerms, categoryFilterTerms, flexFilterTerms, debouncedSearchTerm]);
 
   return (
     <div style={{ float: "left" }}>

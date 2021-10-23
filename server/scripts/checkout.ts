@@ -2,8 +2,6 @@ import { Request, Response } from "express";
 import { env } from "process";
 const { SK_TEST } = env;
 
-console.log(SK_TEST);
-
 // @ts-ignore
 const stripe = require("stripe")(SK_TEST);
 
@@ -26,6 +24,5 @@ export const checkout = async (req: Request, res: Response) => {
     success_url: "https://example.com/success",
     cancel_url: "https://example.com/cancel",
   });
-
   res.redirect(303, session.url);
 };

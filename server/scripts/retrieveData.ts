@@ -7,9 +7,19 @@ export const getAllBoards = async (req: Request, res: Response) => {
   res.status(200).send(allBoards);
 };
 
+export const getSingleBoard = async (req: Request, res: Response) => {
+  let boardId: any = req.query.id;
+  boardId = parseInt(boardId);
+
+  const result = await prisma.boards.findUnique({
+    where: { id: boardId },
+  });
+
+  res.status(200).send(result);
+};
+
 export const getFilteredBoards = async (req: Request, res: Response) => {
-  const { brandFilterTerms, categoryFilterTerms, flexFilterTerms, searchTerm } =
-    req.query as Record<string, string[]>;
+  const { brandFilterTerms, categoryFilterTerms, flexFilterTerms, searchTerm } = req.query as Record<string, string[]>;
 
   const brandFilterArray = brandFilterTerms?.map((brand) => ({ brand }));
   const categoryFilterArray = categoryFilterTerms?.map((category) => ({ category }));
@@ -52,6 +62,5 @@ export const getFilteredBoards = async (req: Request, res: Response) => {
       ],
     },
   });
-
   res.status(200).send(filteredBoards);
 };

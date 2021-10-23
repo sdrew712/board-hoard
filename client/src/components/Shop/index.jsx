@@ -19,6 +19,7 @@ const ShopPage = () => {
     return (
       <Product
         key={data[1].id}
+        id={data[1].id}
         name={data[1].name}
         price={data[1].price}
         brand={data[1].brand}

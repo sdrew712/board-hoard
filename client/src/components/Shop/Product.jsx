@@ -1,12 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Product = ({ imageURL, name, price, brand, category, flex, description, length, width, wheelbase }) => {
+const Product = ({ id, imageURL, name, price, brand, category, flex, description, length, width, wheelbase }) => {
   return (
     <>
       <Link
         to={{
-          pathname: `/shop/${name}`,
+          pathname: `/shop/${id}`,
           state: {
             imageURL,
             name,

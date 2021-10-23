@@ -1,7 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { getSingleBoard } from "./boardsData";
 
-const ProductPage = () => {
+const ProductPage = (props) => {
+  //get board id from URL
+  const boardId = props.location.pathname.substring(6, 7);
+  console.log(boardId);
+
+  useEffect(() => {
+    getSingleBoard(boardId).then((res) => console.log(res));
+  }, [boardId]);
+
   const location = useLocation();
   // @ts-ignore
   const { imageURL, name, price, brand, category, flex, description, length, width, wheelbase } = location.state;

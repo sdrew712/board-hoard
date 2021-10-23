@@ -11,14 +11,9 @@ const getBoardsData = async () => {
 
 exports.getBoardsData = getBoardsData;
 
-const filterBoardsData = async (
-  brandFilterTerms,
-  categoryFilterTerms,
-  flexFilterTerms,
-  searchTerm
-) => {
+const filterBoardsData = async (brandFilterTerms, categoryFilterTerms, flexFilterTerms, searchTerm) => {
   try {
-    const result = await axios.get(`http://localhost:3001/api/filter`, {
+    const result = await axios.get("http://localhost:3001/api/filter", {
       params: {
         brandFilterTerms,
         categoryFilterTerms,
@@ -33,3 +28,18 @@ const filterBoardsData = async (
 };
 
 exports.filterBoardsData = filterBoardsData;
+
+const getSingleBoard = async (id) => {
+  try {
+    const result = await axios.get("http://localhost:3001/api/board", {
+      params: {
+        id,
+      },
+    });
+    return result.data;
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+exports.getSingleBoard = getSingleBoard;

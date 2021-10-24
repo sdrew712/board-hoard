@@ -21,6 +21,7 @@ const App = () => {
         <Route exact path="/cart" component={Cart} />
         <Route exact path="/cart" component={Cart} />
         <Route exact path="/success" component={Success} />
+        <Route exact path="/cancel" component={Cart} />
         <Route path="/*">
           <Redirect to="/" />
         </Route>

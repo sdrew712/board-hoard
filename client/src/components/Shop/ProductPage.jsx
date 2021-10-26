@@ -32,6 +32,26 @@ const ProductPage = (props) => {
         <p>Wheelbase: {boardData.wheelbase}"</p>
         <p>Flex: {boardData.flex}</p>
       </div>
+      <label htmlFor="quantity">Quantity:</label>
+      <input type="number" name="quantity" id="quantity" defaultValue="1" />
+
+      <button
+        onClick={() => {
+          const cart = JSON.parse(localStorage.getItem("cart"));
+          const newItem = {
+            productId: boardData.id,
+            productName: boardData.name,
+            productPrice: boardData.price,
+            quantity: document.getElementById("quantity").value,
+          };
+
+          cart.push(newItem);
+
+          localStorage.setItem("cart", JSON.stringify(cart));
+        }}
+      >
+        Add to cart
+      </button>
     </div>
   );
 };

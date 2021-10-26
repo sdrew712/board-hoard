@@ -57,7 +57,7 @@ const ProductPage = (props) => {
         <p>Flex: {boardData.flex}</p>
       </div>
       <label htmlFor="quantity">Quantity:</label>
-      <input type="number" name="quantity" id="quantity" defaultValue="1" />
+      <input type="number" name="quantity" id="quantity" defaultValue="1" min="1" />
 
       <button onClick={() => handleAddToCart()}>Add to cart</button>
     </div>

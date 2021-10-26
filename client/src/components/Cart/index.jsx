@@ -11,7 +11,7 @@ const Cart = () => {
     return (
       <div key={item.productId}>
         <h2>{item.productName}</h2>
-        <p>${item.productPrice}</p>
+        <p>${item.productPrice * item.quantity}</p>
         <p>Quantity: {item.quantity}</p>
       </div>
     );

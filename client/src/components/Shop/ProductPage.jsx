@@ -16,6 +16,28 @@ const ProductPage = (props) => {
     });
   }, [boardId]);
 
+  const handleAddToCart = () => {
+    const cartCopy = [...cart];
+
+    const newItem = {
+      productId: boardData.id,
+      productName: boardData.name,
+      productPrice: boardData.price,
+      quantity: parseInt(document.getElementById("quantity").value),
+    };
+
+    const existingItem = cartCopy.find((cartItem) => cartItem.productId === newItem.productId);
+
+    if (cartCopy.length === 0) {
+      setCart([newItem]);
+    } else if (existingItem) {
+      existingItem.quantity += newItem.quantity;
+      setCart(cartCopy);
+    } else {
+      setCart([...cartCopy, newItem]);
+    }
+  };
+
   return (
     <div>
       <img src={boardData.image_url} alt={`${boardData.name} deck`} style={{ width: "250px" }} />
@@ -37,31 +59,7 @@ const ProductPage = (props) => {
       <label htmlFor="quantity">Quantity:</label>
       <input type="number" name="quantity" id="quantity" defaultValue="1" />
 
-      <button
-        onClick={() => {
-          const cartCopy = [...cart];
-
-          const newItem = {
-            productId: boardData.id,
-            productName: boardData.name,
-            productPrice: boardData.price,
-            quantity: parseInt(document.getElementById("quantity").value),
-          };
-
-          const existingItem = cartCopy.find((cartItem) => cartItem.productId === newItem.productId);
-
-          if (cartCopy.length === 0) {
-            setCart([newItem]);
-          } else if (existingItem) {
-            existingItem.quantity += newItem.quantity;
-            setCart(cartCopy);
-          } else {
-            setCart([...cartCopy, newItem]);
-          }
-        }}
-      >
-        Add to cart
-      </button>
+      <button onClick={() => handleAddToCart()}>Add to cart</button>
     </div>
   );
 };

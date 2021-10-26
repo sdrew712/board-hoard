@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
+import CartContext from "../../contexts/CartContext";
 
 const Cart = () => {
-  const stringCart = localStorage.getItem("cart");
-  const cart = JSON.parse(stringCart);
+  const { cart } = useContext(CartContext);
+  console.log(cart);
+
+  const stringCart = JSON.stringify(cart);
 
   const cartItems = cart.map((item) => {
     return (

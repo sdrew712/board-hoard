@@ -49,7 +49,6 @@ const ProductPage = (props) => {
           };
 
           const existingItem = cartCopy.find((cartItem) => cartItem.productId === newItem.productId);
-          console.log(existingItem);
 
           if (cartCopy.length === 0) {
             setCart([newItem]);

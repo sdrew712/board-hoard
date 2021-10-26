@@ -6,6 +6,7 @@ import { checkout } from "./scripts/checkout";
 const app = express();
 app.use(cors());
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 app.get("/api/boards", getAllBoards);
 

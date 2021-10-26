@@ -1,8 +1,10 @@
 // @ts-nocheck
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { getSingleBoard } from "./boardsData";
+import CartContext from "../../contexts/CartContext";
 
 const ProductPage = (props) => {
+  const { cart, setCart } = useContext(CartContext);
   const [boardData, setBoardData] = useState({});
 
   //get board id from URL
@@ -37,17 +39,26 @@ const ProductPage = (props) => {
 
       <button
         onClick={() => {
-          const cart = JSON.parse(localStorage.getItem("cart"));
+          const cartCopy = [...cart];
+
           const newItem = {
             productId: boardData.id,
             productName: boardData.name,
             productPrice: boardData.price,
-            quantity: document.getElementById("quantity").value,
+            quantity: parseInt(document.getElementById("quantity").value),
           };
 
-          cart.push(newItem);
+          const existingItem = cartCopy.find((cartItem) => cartItem.productId === newItem.productId);
+          console.log(existingItem);
 
-          localStorage.setItem("cart", JSON.stringify(cart));
+          if (cartCopy.length === 0) {
+            setCart([newItem]);
+          } else if (existingItem) {
+            existingItem.quantity += newItem.quantity;
+            setCart(cartCopy);
+          } else {
+            setCart([...cartCopy, newItem]);
+          }
         }}
       >
         Add to cart

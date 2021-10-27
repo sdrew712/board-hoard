@@ -1,4 +1,3 @@
-// @ts-nocheck
 import React, { useState, useEffect, useContext } from "react";
 import { getSingleBoard } from "./boardsData";
 import CartContext from "../../contexts/CartContext";

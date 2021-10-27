@@ -1,10 +1,11 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import { getSingleBoard } from "./boardsData";
-import CartContext from "../../contexts/CartContext";
+import useCart from "../../hooks/useCart";
+
 import Loading from "./Loading";
 
 const ProductPage = (props) => {
-  const { cart, setCart } = useContext(CartContext);
+  const { cart, setCart } = useCart();
   const [boardData, setBoardData] = useState({});
 
   //get board id from URL

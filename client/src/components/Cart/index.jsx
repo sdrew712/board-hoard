@@ -1,8 +1,8 @@
-import React, { useContext } from "react";
-import CartContext from "../../contexts/CartContext";
+import React from "react";
+import useCart from "../../hooks/useCart";
 
 const Cart = () => {
-  const { cart, setCart } = useContext(CartContext);
+  const { cart, setCart } = useCart();
 
   const stringCart = JSON.stringify(cart);
 
@@ -14,7 +14,7 @@ const Cart = () => {
 
     //if the selected quantity is greater than 0, update it
     if (quantity > 0) {
-      existingItem.quantity = quantity;
+      cartCopy[productIndex].quantity = quantity;
       setCart(cartCopy);
     }
     //else, remove it from the state(causing rerender and its removal from cart)

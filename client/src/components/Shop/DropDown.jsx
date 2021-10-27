@@ -2,7 +2,11 @@ import React from "react";
 
 const DropDown = ({ labelText, labelOptions, setFilterTerm, setIsFiltered }) => {
   const options = labelOptions.map((option) => {
-    return <option value={option.value}>{option.text}</option>;
+    return (
+      <option key={option.value} value={option.value}>
+        {option.text}
+      </option>
+    );
   });
 
   const handleDropdownChange = (value) => {

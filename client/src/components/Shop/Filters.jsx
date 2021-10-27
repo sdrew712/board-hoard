@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { filterBoardsData } from "./boardsData";
 import FilterButton from "./FilterButton";
+import DropDown from "./DropDown";
 import Search from "./Search";
 
 const Filters = ({ getBoardsData, setBoardsData, isFiltered, setIsFiltered }) => {
   const [brandFilterTerms, setBrandFilterTerms] = useState([]);
   const [categoryFilterTerms, setCategoryFilterTerms] = useState([]);
   const [flexFilterTerms, setFlexFilterTerms] = useState([]);
+  const [sortByTerm, setSortByTerm] = useState("");
 
   const [searchTerm, setSearchTerm] = useState("");
   const [debouncedSearchTerm, setDebouncedSearchTerm] = useState("");
@@ -21,11 +23,21 @@ const Filters = ({ getBoardsData, setBoardsData, isFiltered, setIsFiltered }) =>
 
   useEffect(() => {
     if (isFiltered === true) {
-      filterBoardsData(brandFilterTerms, categoryFilterTerms, flexFilterTerms, debouncedSearchTerm).then((res) => {
-        setBoardsData(Object.entries(res));
-      });
+      filterBoardsData(brandFilterTerms, categoryFilterTerms, flexFilterTerms, debouncedSearchTerm, sortByTerm).then(
+        (res) => {
+          setBoardsData(Object.entries(res));
+        }
+      );
     }
-  }, [setBoardsData, isFiltered, brandFilterTerms, categoryFilterTerms, flexFilterTerms, debouncedSearchTerm]);
+  }, [
+    setBoardsData,
+    isFiltered,
+    brandFilterTerms,
+    categoryFilterTerms,
+    flexFilterTerms,
+    debouncedSearchTerm,
+    sortByTerm,
+  ]);
 
   return (
     <div style={{ float: "left" }}>
@@ -123,6 +135,16 @@ const Filters = ({ getBoardsData, setBoardsData, isFiltered, setIsFiltered }) =>
           filterTerms={flexFilterTerms}
           setFilterTerms={setFlexFilterTerms}
           filterButtonText="Stiff"
+        />
+
+        <h2>Sort by</h2>
+        <DropDown
+          labelOptions={[
+            { text: "Lowest Price", value: "asc" },
+            { text: "Highest Price", value: "desc" },
+          ]}
+          setFilterTerm={setSortByTerm}
+          setIsFiltered={setIsFiltered}
         />
       </div>
     </div>

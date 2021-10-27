@@ -19,13 +19,31 @@ export const getSingleBoard = async (req: Request, res: Response) => {
 };
 
 export const getFilteredBoards = async (req: Request, res: Response) => {
-  const { brandFilterTerms, categoryFilterTerms, flexFilterTerms, searchTerm } = req.query as Record<string, string[]>;
+  const { brandFilterTerms, categoryFilterTerms, flexFilterTerms, searchTerm, sortByTerm } = req.query as Record<
+    string,
+    string[]
+  >;
 
   const brandFilterArray = brandFilterTerms?.map((brand) => ({ brand }));
   const categoryFilterArray = categoryFilterTerms?.map((category) => ({ category }));
   const flexFilterArray = flexFilterTerms?.map((flex) => ({ flex }));
 
+  const sortByTermArray = () => {
+    if (sortByTerm.length > 0) {
+      return [
+        {
+          //@ts-ignore
+          price: sortByTerm,
+        },
+      ];
+    } else {
+      return [];
+    }
+  };
+
   const filteredBoards = await prisma.boards.findMany({
+    //@ts-ignore
+    orderBy: sortByTermArray(),
     where: {
       AND: [
         { OR: brandFilterArray },

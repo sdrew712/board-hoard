@@ -11,7 +11,7 @@ const getBoardsData = async () => {
 
 exports.getBoardsData = getBoardsData;
 
-const filterBoardsData = async (brandFilterTerms, categoryFilterTerms, flexFilterTerms, searchTerm) => {
+const filterBoardsData = async (brandFilterTerms, categoryFilterTerms, flexFilterTerms, searchTerm, sortByTerm) => {
   try {
     const result = await axios.get("http://localhost:3001/api/filter", {
       params: {
@@ -19,6 +19,7 @@ const filterBoardsData = async (brandFilterTerms, categoryFilterTerms, flexFilte
         categoryFilterTerms,
         flexFilterTerms,
         searchTerm,
+        sortByTerm,
       },
     });
     return result.data;

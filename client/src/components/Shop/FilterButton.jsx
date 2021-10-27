@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
+import Button from "@mui/material/Button";
 
 const FilterButton = ({ setIsFiltered, filterTerms, setFilterTerms, filterButtonText }) => {
+  //toggle state for button
+  const [toggled, setToggled] = useState(false);
+
   //handle filter terms and filtered state
   const handleFilterTerms = (buttonClicked) => {
     //if button clicked is in filter terms and if there are no more buttons left, set filtered to false
@@ -23,13 +27,16 @@ const FilterButton = ({ setIsFiltered, filterTerms, setFilterTerms, filterButton
   };
 
   return (
-    <button
+    <Button
+      variant={toggled ? "contained" : "outlined"}
+      color="secondary"
       onClick={() => {
         handleFilterTerms(filterButtonText);
+        setToggled(!toggled);
       }}
     >
       {filterButtonText}
-    </button>
+    </Button>
   );
 };
 

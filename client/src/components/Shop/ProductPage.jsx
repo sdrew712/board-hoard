@@ -2,6 +2,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { getSingleBoard } from "./boardsData";
 import CartContext from "../../contexts/CartContext";
+import Loading from "./Loading";
 
 const ProductPage = (props) => {
   const { cart, setCart } = useContext(CartContext);
@@ -39,7 +40,7 @@ const ProductPage = (props) => {
   };
 
   if (boardData.length === undefined) {
-    return <div>Loading...</div>;
+    return <Loading />;
   }
 
   return (

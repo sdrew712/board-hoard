@@ -51,6 +51,7 @@ const Filters = ({ getBoardsData, setBoardsData, isFiltered, setIsFiltered }) =>
     setCategoryFilterTerms([]);
     setFlexFilterTerms([]);
     setSearchTerm("");
+    setSortByTerm("");
   };
 
   return (
@@ -144,6 +145,7 @@ const Filters = ({ getBoardsData, setBoardsData, isFiltered, setIsFiltered }) =>
             { text: "Lowest Price", value: "asc" },
             { text: "Highest Price", value: "desc" },
           ]}
+          filterTerm={sortByTerm}
           setFilterTerm={setSortByTerm}
           setIsFiltered={setIsFiltered}
         />

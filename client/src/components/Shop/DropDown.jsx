@@ -1,6 +1,6 @@
 import React from "react";
 
-const DropDown = ({ labelText, labelOptions, setFilterTerm, setIsFiltered }) => {
+const DropDown = ({ labelText, labelOptions, filterTerm, setFilterTerm, setIsFiltered }) => {
   //map over labelOptions and return a list of options
   const options = labelOptions.map((option) => {
     return (
@@ -15,7 +15,9 @@ const DropDown = ({ labelText, labelOptions, setFilterTerm, setIsFiltered }) => 
     if (value) {
       setFilterTerm(value);
       setIsFiltered(true);
-    } else {
+    }
+    //if the user selects the empty option, set the filterTerm to an empty string
+    else {
       setFilterTerm("");
       setIsFiltered(false);
     }
@@ -26,6 +28,7 @@ const DropDown = ({ labelText, labelOptions, setFilterTerm, setIsFiltered }) => 
       <select
         name={labelText}
         id={labelText}
+        value={filterTerm}
         onChange={({ target }) => {
           handleDropdownChange(target.value);
         }}

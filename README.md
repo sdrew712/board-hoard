@@ -1,10 +1,10 @@
 # Board Hoard
 
-This is my capstone project for DevMountain. Created with React, Express, and PostgreSQL
+This is my capstone project for DevMountain. Created with React, React Context, React Router, Node, Express, PostgreSQL, Prisma, Stripe
 
 ## To run:
 
 1. npm i
-2. cd client
-3. npm start
-4. nodemon server/index.js
+2. npm start (in both client and server folders)
+3. start up database server, add db url to .env
+4. node seedDatabase

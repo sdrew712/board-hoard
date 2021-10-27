@@ -41,12 +41,8 @@ const Filters = ({ getBoardsData, setBoardsData, isFiltered, setIsFiltered }) =>
     sortByTerm,
   ]);
 
-  return (
-    <div style={{ float: "left" }}>
-      Filters
-      <div>
-        <button
-          onClick={() => {
+  //get all boards data and set it to state, clear filter terms
+  const handleClearFilters = () => {
     getBoardsData().then((res) => {
       setBoardsData(Object.entries(res));
     });
@@ -55,10 +51,13 @@ const Filters = ({ getBoardsData, setBoardsData, isFiltered, setIsFiltered }) =>
     setCategoryFilterTerms([]);
     setFlexFilterTerms([]);
     setSearchTerm("");
-          }}
-        >
-          Clear filters
-        </button>
+  };
+
+  return (
+    <div style={{ float: "left" }}>
+      Filters
+      <div>
+        <button onClick={handleClearFilters}>Clear filters</button>
 
         <Search
           searchTerm={searchTerm}

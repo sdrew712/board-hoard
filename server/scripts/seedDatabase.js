@@ -1,4 +1,4 @@
-const { PrismaClient } = require("@prisma/client");
+import { PrismaClient } from ".prisma/client";
 
 const prisma = new PrismaClient();
 
@@ -11,8 +11,7 @@ async function main() {
         price: 172,
         brand: "Loaded",
         category: "Freestyle",
-        image_url:
-          "https://www.muirskate.com/photos/products/1059/hd_product_Loaded_2013_Poke__Set_.png",
+        image_url: "https://www.muirskate.com/photos/products/1059/hd_product_Loaded_2013_Poke__Set_.png",
         description:
           "If you need a bite, grab yourself some POKE! Evolving from the Loaded Fish and the Ceviche, this rad little ripper will take you anywhere. With features like a fully functional kicktail, a mini nose, subtle rocker and wheel flares, this lightweight bamboo composite board will get you shredding. Quick and nimble, you'll be pumping between classes or commuting across town in no time.",
         length: 34,
@@ -26,8 +25,7 @@ async function main() {
         price: 209.95,
         brand: "Zenit",
         category: "Downhill",
-        image_url:
-          "https://www.muirskate.com/photos/products/9493/hd_product_ZenitRocketv2bottom%28set-final%29.png",
+        image_url: "https://www.muirskate.com/photos/products/9493/hd_product_ZenitRocketv2bottom%28set-final%29.png",
         description:
           'The Zenit Mini Rocket 33 Longboard deck is pressed in the same mold as the Rocket V3 but is only 8.7" wide, allowing you to fit narrower longboard trucks. This downhill longboard deck is constructed with 6 plies of Hard Rock Canadian Maple sandwiched in sheets of Triaxial Fiberglass and one Layer of "X" Shaped UD Carbon Fiber. The V2 Zenit Mini Rocket 33" radial concave and generous wheel flares for railing the most aggressive corners.',
         length: 33.5,
@@ -71,8 +69,7 @@ async function main() {
         price: 259,
         brand: "Zenit",
         category: "Dance",
-        image_url:
-          "https://www.muirskate.com/photos/products/9480/hd_product_ZenitTango%28Set-Final%29.png",
+        image_url: "https://www.muirskate.com/photos/products/9480/hd_product_ZenitTango%28Set-Final%29.png",
         description:
           "The 2021 Zenit Tango dancer deck is a top notch freestyle dancer. It has a fun platform ideal for those looking for a longboard deck for dancing and freeride!",
         length: 42.5,
@@ -116,8 +113,7 @@ async function main() {
         price: 198.95,
         brand: "Moonshine MFG",
         category: "Freestyle",
-        image_url:
-          "https://www.muirskate.com/photos/products/9468/hd_product_MoonshineElixir%28Set-Final%29.png",
+        image_url: "https://www.muirskate.com/photos/products/9468/hd_product_MoonshineElixir%28Set-Final%29.png",
         description:
           "The Moonshine MFG Elixir deck just got an upgrade. For this edition, Moonshine MFG slimmed down and refined the shape for increased durability and freestyle performance. It's a great do-everything deck that knows how to take a beating. Whether you are throwing the longest toeside slide, holding out manuals, or dancing all the way down the boardwalk, this longboard will never let you down.",
         length: 40.5,
@@ -131,8 +127,7 @@ async function main() {
         price: 186,
         brand: "Zenit",
         category: "Downhill",
-        image_url:
-          "https://www.muirskate.com/photos/products/9404/hd_product_Marble40%28Set-Final%29.png",
+        image_url: "https://www.muirskate.com/photos/products/9404/hd_product_Marble40%28Set-Final%29.png",
         description:
           "Designed for freestyle addicts, the Marble 40 V3 has been reimagined. While it maintains its freeride and downhill prowess, an evened-out mold tones down the board’s curves to make the micro drops and the radial concave more progressive.",
         length: 40,
@@ -146,8 +141,7 @@ async function main() {
         price: 219.95,
         brand: "Rayne",
         category: "Downhill",
-        image_url:
-          "https://www.muirskate.com/photos/products/9583/hd_product_Mitchprobottom%28set-Final%29.png",
+        image_url: "https://www.muirskate.com/photos/products/9583/hd_product_Mitchprobottom%28set-Final%29.png",
         description:
           "The Rayne Mitty is a compact downhill skateboard created and designed by pro rider Mitch Thompson. This board has been designed for racing yet it kills the freeride game. Mitch wanted to create a versatile board that could do both with ease!",
         length: 32,
@@ -161,8 +155,7 @@ async function main() {
         price: 249.95,
         brand: "Moonshine MFG",
         category: "Downhill",
-        image_url:
-          "https://www.muirskate.com/photos/products/4360/hd_product_Moonshine-Tucker-%28Set-HD%29.png",
+        image_url: "https://www.muirskate.com/photos/products/4360/hd_product_Moonshine-Tucker-%28Set-HD%29.png",
         description:
           "Moonshine MFG and Ronin collaborated to bring you the Tucker. With the same classic Moonshine construction, this board is stiff like you wouldn't believe! Similar to the GMR Tucker boards, Moonshines don't need heavy metal spines to keep its rigidity. Due to its state of the art construction, you get the best of both worlds, stiff AND extremely light. If you're looking for a downhill board with no limits, the Moonshine Tucker is the board for you!",
         length: 33.5,
@@ -206,8 +199,7 @@ async function main() {
         price: 149.95,
         brand: "Rayne",
         category: "Freestyle",
-        image_url:
-          "https://www.muirskate.com/photos/products/6320/hd_product_Rayne-2016-Whip-41%28SET-HD%29.png",
+        image_url: "https://www.muirskate.com/photos/products/6320/hd_product_Rayne-2016-Whip-41%28SET-HD%29.png",
         description:
           "So what if you don’t want to go fast? What if you just want to take curvy, flowing lines through your neighborhood streets, twirling, stepping, dancing and flipping to oblivion? Do you wish you had more room to take more steps and more kicktails to flip your board up for a steezy tigerclaw? Do not be afraid, the Whip has landed! The Whip is designed around free motion. A board designed to encourage and progress your freestyle in ways that your quiver-killer never could; the supple, shallow kicktails allow you to whip your board around, no-comply and ollie with little effort and much agility.",
         length: 41,
@@ -221,8 +213,7 @@ async function main() {
         price: 299,
         brand: "Loaded",
         category: "Dance",
-        image_url:
-          "https://www.muirskate.com/photos/products/7267/hd_product_Loaded-Tarab-Deck-2017-%28SET-HD%29.png",
+        image_url: "https://www.muirskate.com/photos/products/7267/hd_product_Loaded-Tarab-Deck-2017-%28SET-HD%29.png",
         description:
           "The Loaded Tarab is designed to push the boundaries of modern longboard dancing. Loaded launched their first Dancer in 2008, followed by the Bhangra in 2010. The Tarab builds on that history. Lightweight, durable and technical, the Tarab is intended to further the level of longboard dancing and modern freestyle.",
         length: 47,
@@ -236,8 +227,7 @@ async function main() {
         price: 198.95,
         brand: "Moonshine MFG",
         category: "Freestyle",
-        image_url:
-          "https://www.muirskate.com/photos/products/7313/hd_product_Moonshine-Infuser-%28SET-HD%29.png",
+        image_url: "https://www.muirskate.com/photos/products/7313/hd_product_Moonshine-Infuser-%28SET-HD%29.png",
         description:
           "Infuse your freestyle and dancing game with new moves. The lightweight Infuser is a freestyle multi-purpose tool. This symmetrical top mount deck is great for cruising, carving, dancing and pushing your favorite trail. The Infuser features large urethane tip/tail for added durability, perfect subtle concave and perfect flex. Like any Moonshine deck, it’s 100% waterproof and has ultra-durable urethane rails.",
         length: 44,
@@ -251,8 +241,7 @@ async function main() {
         price: 112.95,
         brand: "Landyachtz",
         category: "Dance",
-        image_url:
-          "https://www.muirskate.com/photos/products/9137/hd_product_Stratus46watercolor_%28set-final2%29.png",
+        image_url: "https://www.muirskate.com/photos/products/9137/hd_product_Stratus46watercolor_%28set-final2%29.png",
         description:
           "The same Stratus that you know and love, now pressed in all Canadian maple for a smoother ride and increased durability. It has a snappy flex, a symmetrical shape and big, mellow kicktails for all of your freestyle and dancing needs.",
         length: 46,

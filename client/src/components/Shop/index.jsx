@@ -9,7 +9,7 @@ const ShopPage = () => {
 
   //if board data is not filtered, get all board data
   useEffect(() => {
-    if (isFiltered === false) {
+    if (!isFiltered) {
       getBoardsData().then((res) => {
         setBoardsData(Object.entries(res));
       });

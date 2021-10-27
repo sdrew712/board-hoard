@@ -1,6 +1,7 @@
-const { default: axios } = require("axios");
+import axios from "axios";
 
-const getBoardsData = async () => {
+//get all boards
+export const getBoardsData = async () => {
   try {
     const result = await axios.get("http://localhost:3001/api/boards");
     return result.data;
@@ -9,9 +10,14 @@ const getBoardsData = async () => {
   }
 };
 
-exports.getBoardsData = getBoardsData;
-
-const filterBoardsData = async (brandFilterTerms, categoryFilterTerms, flexFilterTerms, searchTerm, sortByTerm) => {
+//get boards that match filter terms
+export const filterBoardsData = async (
+  brandFilterTerms,
+  categoryFilterTerms,
+  flexFilterTerms,
+  searchTerm,
+  sortByTerm
+) => {
   try {
     const result = await axios.get("http://localhost:3001/api/filter", {
       params: {
@@ -28,9 +34,8 @@ const filterBoardsData = async (brandFilterTerms, categoryFilterTerms, flexFilte
   }
 };
 
-exports.filterBoardsData = filterBoardsData;
-
-const getSingleBoard = async (id) => {
+//get single board by id
+export const getSingleBoard = async (id) => {
   try {
     const result = await axios.get("http://localhost:3001/api/board", {
       params: {
@@ -42,5 +47,3 @@ const getSingleBoard = async (id) => {
     console.error(err);
   }
 };
-
-exports.getSingleBoard = getSingleBoard;

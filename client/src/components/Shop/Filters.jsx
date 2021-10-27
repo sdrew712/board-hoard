@@ -13,6 +13,7 @@ const Filters = ({ getBoardsData, setBoardsData, isFiltered, setIsFiltered }) =>
   const [searchTerm, setSearchTerm] = useState("");
   const [debouncedSearchTerm, setDebouncedSearchTerm] = useState("");
 
+  // easter egg lul
   useEffect(() => {
     if (debouncedSearchTerm.toLowerCase() === "longboard") {
       alert("What are you even searching for?");
@@ -21,6 +22,7 @@ const Filters = ({ getBoardsData, setBoardsData, isFiltered, setIsFiltered }) =>
     }
   }, [debouncedSearchTerm]);
 
+  // if filtered is true, get filtered boards data and set it to state
   useEffect(() => {
     if (isFiltered === true) {
       filterBoardsData(brandFilterTerms, categoryFilterTerms, flexFilterTerms, debouncedSearchTerm, sortByTerm).then(
@@ -45,14 +47,14 @@ const Filters = ({ getBoardsData, setBoardsData, isFiltered, setIsFiltered }) =>
       <div>
         <button
           onClick={() => {
-            getBoardsData().then((res) => {
-              setBoardsData(Object.entries(res));
-            });
-            setIsFiltered(false);
-            setBrandFilterTerms([]);
-            setCategoryFilterTerms([]);
-            setFlexFilterTerms([]);
-            setSearchTerm("");
+    getBoardsData().then((res) => {
+      setBoardsData(Object.entries(res));
+    });
+    setIsFiltered(false);
+    setBrandFilterTerms([]);
+    setCategoryFilterTerms([]);
+    setFlexFilterTerms([]);
+    setSearchTerm("");
           }}
         >
           Clear filters

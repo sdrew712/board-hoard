@@ -11,15 +11,18 @@ const ProductPage = (props) => {
   //get board id from URL
   const boardId = props.location.pathname.substring(6, 7);
 
+  //get board data for this page
   useEffect(() => {
     getSingleBoard(boardId).then((res) => {
       setBoardData(res);
     });
   }, [boardId]);
 
+  //add board to cart
   const handleAddToCart = () => {
     const cartCopy = [...cart];
 
+    //create new item object
     const newItem = {
       productId: boardData.id,
       productName: boardData.name,
@@ -27,18 +30,25 @@ const ProductPage = (props) => {
       quantity: parseInt(document.getElementById("quantity").value),
     };
 
+    //check if item already exists in cart
     const existingItem = cartCopy.find((cartItem) => cartItem.productId === newItem.productId);
 
+    //if nothing is in cart, set it to new item
     if (cartCopy.length === 0) {
       setCart([newItem]);
-    } else if (existingItem) {
+    }
+    //if item exists, update quantity in copy
+    else if (existingItem) {
       existingItem.quantity += newItem.quantity;
+      //set cart to updated copy
       setCart(cartCopy);
     } else {
+      //set cart to updated copy with new item
       setCart([...cartCopy, newItem]);
     }
   };
 
+  //if no board data, show loading
   if (boardData.length === undefined) {
     return <Loading />;
   }

@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 
 const Search = ({ setIsFiltered, searchTerm, setSearchTerm, setDebouncedSearchTerm }) => {
+  //create timer for debounced term
   useEffect(() => {
     const timerId = setTimeout(() => {
       setDebouncedSearchTerm(searchTerm);

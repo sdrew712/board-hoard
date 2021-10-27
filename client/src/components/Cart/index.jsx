@@ -4,12 +4,15 @@ import useCart from "../../hooks/useCart";
 const Cart = () => {
   const { cart, setCart } = useCart();
 
+  //stringify cart to send to backend
   const stringCart = JSON.stringify(cart);
 
   const handleQuantityChange = (quantity, productId) => {
     const cartCopy = [...cart];
 
+    //find product in cart
     const existingItem = cartCopy.find((cartItem) => cartItem.productId === productId);
+    //find index of product in cart
     const productIndex = cartCopy.indexOf(existingItem);
 
     //if the selected quantity is greater than 0, update it

@@ -1,6 +1,7 @@
 import React from "react";
 
 const DropDown = ({ labelText, labelOptions, setFilterTerm, setIsFiltered }) => {
+  //map over labelOptions and return a list of options
   const options = labelOptions.map((option) => {
     return (
       <option key={option.value} value={option.value}>
@@ -9,6 +10,7 @@ const DropDown = ({ labelText, labelOptions, setFilterTerm, setIsFiltered }) => 
     );
   });
 
+  //when the user selects an option, set the filterTerm to the selected option's value
   const handleDropdownChange = (value) => {
     if (value) {
       setFilterTerm(value);

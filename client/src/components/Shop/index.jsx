@@ -7,6 +7,7 @@ const ShopPage = () => {
   const [boardsData, setBoardsData] = useState([]);
   const [isFiltered, setIsFiltered] = useState(false);
 
+  //if board data is not filtered, get all board data
   useEffect(() => {
     if (isFiltered === false) {
       getBoardsData().then((res) => {
@@ -34,10 +35,13 @@ const ShopPage = () => {
     );
   });
 
+  //if there is no filter and there is board data, render all board data
   const boardsRenderer = () => {
     if (isFiltered === false || boardsData.length > 0) {
       return boardRenderer;
-    } else {
+    }
+    //if there is no board data, render no board data message
+    else {
       return <p>No boards found</p>;
     }
   };

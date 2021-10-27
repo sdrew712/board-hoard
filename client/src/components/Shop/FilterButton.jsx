@@ -1,6 +1,7 @@
 import React from "react";
 
 const FilterButton = ({ setIsFiltered, filterTerms, setFilterTerms, filterButtonText }) => {
+  //handle filter terms and filtered state
   const handleFilterTerms = (buttonClicked) => {
     //if button clicked is in filter terms and if there are no more buttons left, set filtered to false
     if (filterTerms.includes(buttonClicked) && filterTerms.length <= 1) {

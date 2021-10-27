@@ -74,7 +74,7 @@ const ProductPage = (props) => {
       <label htmlFor="quantity">Quantity:</label>
       <input type="number" name="quantity" id="quantity" defaultValue="1" min="1" />
 
-      <button onClick={() => handleAddToCart()}>Add to cart</button>
+      <button onClick={handleAddToCart}>Add to cart</button>
     </div>
   );
 };

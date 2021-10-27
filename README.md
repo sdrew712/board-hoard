@@ -1,6 +1,6 @@
 # Board Hoard
 
-This is my capstone project for DevMountain. Created with React, React Context, React Router, Node, Express, PostgreSQL, Prisma, Stripe
+This is my capstone project for DevMountain. Created with React, React Router, Node, Express, PostgreSQL, Prisma, Stripe, Sass, and Material UI.
 
 ## To run:
 

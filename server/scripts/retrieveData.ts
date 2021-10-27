@@ -32,7 +32,6 @@ export const getFilteredBoards = async (req: Request, res: Response) => {
     if (sortByTerm.length > 0) {
       return [
         {
-          //@ts-ignore
           price: sortByTerm,
         },
       ];

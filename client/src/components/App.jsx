@@ -8,6 +8,7 @@ import ShopPage from "./Shop";
 import Cart from "./Cart";
 import ProductPage from "./Shop/ProductPage";
 import Success from "./Cart/Success";
+import NotFoundPage from "./NotFoundPage/NotFoundPage";
 
 const App = () => {
   return (
@@ -23,6 +24,8 @@ const App = () => {
         <Route exact path="/success" component={Success} />
         <Route path="/*">
           <Redirect to="/" />
+          <Route path="/404" component={NotFoundPage} />
+          <Redirect to="/404" />
         </Route>
       </Switch>
     </Router>

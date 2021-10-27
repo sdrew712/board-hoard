@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
-import "../index.css";
+import "../index.scss";
 
 import TopBar from "./TopBar";
 import HomePage from "./HomePage";

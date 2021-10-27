@@ -38,6 +38,10 @@ const ProductPage = (props) => {
     }
   };
 
+  if (boardData.length === undefined) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <div>
       <img src={boardData.image_url} alt={`${boardData.name} deck`} style={{ width: "250px" }} />

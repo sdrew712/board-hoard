@@ -3,10 +3,8 @@ import CartContext from "../../contexts/CartContext";
 
 const Cart = () => {
   const { cart, setCart } = useContext(CartContext);
-  console.log(cart);
 
   const stringCart = JSON.stringify(cart);
-  console.log("rerender");
 
   const handleQuantityChange = (quantity, productId) => {
     const cartCopy = [...cart];

@@ -15,6 +15,9 @@ import NotFoundPage from "./NotFoundPage/NotFoundPage";
 const theme = createTheme({
   palette: {
     primary: {
+      main: "#FFFFFF",
+    },
+    secondary: {
       main: "#f67671",
     },
   },

@@ -26,7 +26,7 @@ const DropDown = ({ labelText, labelOptions, filterTerm, setFilterTerm, setIsFil
 
   return (
     <>
-      <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
+      <FormControl variant="standard" style={{ minWidth: 120 }}>
         <InputLabel id="demo-simple-select-standard-label">Sort by</InputLabel>
         <Select
           labelId="demo-simple-select-standard-label"

@@ -35,7 +35,7 @@ const DropDown = ({ labelText, labelOptions, filterTerm, setFilterTerm, setIsFil
         <Select
           labelId="demo-simple-select-standard-label"
           id="demo-simple-select-standard"
-          value={labelText}
+          value=""
           onChange={handleDropdownChange}
           label={labelText}
         >

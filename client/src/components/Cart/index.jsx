@@ -81,7 +81,7 @@ const Cart = ({ open, setOpen, drawerWidth }) => {
     <span sx={{ display: "flex" }}>
       <CssBaseline />
       <LocalMallIcon
-        color="inherit"
+        color="secondary"
         aria-label="open drawer"
         edge="end"
         onClick={handleDrawerOpen}
@@ -102,7 +102,7 @@ const Cart = ({ open, setOpen, drawerWidth }) => {
         open={open}
       >
         <DrawerHeader>
-          <IconButton onClick={handleDrawerClose}>
+          <IconButton onClick={handleDrawerClose} color="secondary">
             {theme.direction === "rtl" ? <ChevronLeftIcon /> : <ChevronRightIcon />}
           </IconButton>
         </DrawerHeader>

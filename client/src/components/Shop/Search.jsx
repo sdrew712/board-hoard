@@ -14,18 +14,14 @@ const Search = ({ setIsFiltered, searchTerm, setSearchTerm, setDebouncedSearchTe
     };
   }, [searchTerm, setDebouncedSearchTerm]);
 
+  const handleSearch = ({ target }) => {
+    setSearchTerm(target.value);
+    setIsFiltered(true);
+  };
+
   return (
     <div>
-      <TextField
-        id="standard-basic"
-        label="Search"
-        variant="standard"
-        value={searchTerm}
-        onChange={({ target }) => {
-          setSearchTerm(target.value);
-          setIsFiltered(true);
-        }}
-      />
+      <TextField id="standard-basic" label="Search" variant="standard" value={searchTerm} onChange={handleSearch} />
     </div>
   );
 };

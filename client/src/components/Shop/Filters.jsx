@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { filterBoardsData } from "./boardsData";
 import useWindowDimensions from "../../hooks/useWindowDimensions";
 
+import Button from "@mui/material/Button";
 import { Accordion } from "@mui/material";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import Typography from "@mui/material/Typography";
@@ -69,7 +70,10 @@ const Filters = ({ getBoardsData, setBoardsData, isFiltered, setIsFiltered }) =>
       return (
         <div>
           <h2>Filters</h2>
-          <button onClick={handleClearFilters}>Clear filters</button>
+          <Button variant="contained" color="secondary" onClick={handleClearFilters}>
+            Clear filters
+          </Button>
+
           <Search
             searchTerm={searchTerm}
             setSearchTerm={setSearchTerm}
@@ -78,30 +82,35 @@ const Filters = ({ getBoardsData, setBoardsData, isFiltered, setIsFiltered }) =>
           />
           <h2>brand</h2>
           <FilterButton
+            isFiltered={isFiltered}
             setIsFiltered={setIsFiltered}
             filterTerms={brandFilterTerms}
             setFilterTerms={setBrandFilterTerms}
             filterButtonText="Landyachtz"
           />
           <FilterButton
+            isFiltered={isFiltered}
             setIsFiltered={setIsFiltered}
             filterTerms={brandFilterTerms}
             setFilterTerms={setBrandFilterTerms}
             filterButtonText="Zenit"
           />
           <FilterButton
+            isFiltered={isFiltered}
             setIsFiltered={setIsFiltered}
             filterTerms={brandFilterTerms}
             setFilterTerms={setBrandFilterTerms}
             filterButtonText="Moonshine MFG"
           />
           <FilterButton
+            isFiltered={isFiltered}
             setIsFiltered={setIsFiltered}
             filterTerms={brandFilterTerms}
             setFilterTerms={setBrandFilterTerms}
             filterButtonText="Loaded"
           />
           <FilterButton
+            isFiltered={isFiltered}
             setIsFiltered={setIsFiltered}
             filterTerms={brandFilterTerms}
             setFilterTerms={setBrandFilterTerms}
@@ -109,18 +118,21 @@ const Filters = ({ getBoardsData, setBoardsData, isFiltered, setIsFiltered }) =>
           />
           <h2>category</h2>
           <FilterButton
+            isFiltered={isFiltered}
             setIsFiltered={setIsFiltered}
             filterTerms={categoryFilterTerms}
             setFilterTerms={setCategoryFilterTerms}
             filterButtonText="Dance"
           />
           <FilterButton
+            isFiltered={isFiltered}
             setIsFiltered={setIsFiltered}
             filterTerms={categoryFilterTerms}
             setFilterTerms={setCategoryFilterTerms}
             filterButtonText="Freestyle"
           />
           <FilterButton
+            isFiltered={isFiltered}
             setIsFiltered={setIsFiltered}
             filterTerms={categoryFilterTerms}
             setFilterTerms={setCategoryFilterTerms}
@@ -128,18 +140,21 @@ const Filters = ({ getBoardsData, setBoardsData, isFiltered, setIsFiltered }) =>
           />
           <h2>flex</h2>
           <FilterButton
+            isFiltered={isFiltered}
             setIsFiltered={setIsFiltered}
             filterTerms={flexFilterTerms}
             setFilterTerms={setFlexFilterTerms}
             filterButtonText="Soft"
           />
           <FilterButton
+            isFiltered={isFiltered}
             setIsFiltered={setIsFiltered}
             filterTerms={flexFilterTerms}
             setFilterTerms={setFlexFilterTerms}
             filterButtonText="Medium"
           />
           <FilterButton
+            isFiltered={isFiltered}
             setIsFiltered={setIsFiltered}
             filterTerms={flexFilterTerms}
             setFilterTerms={setFlexFilterTerms}
@@ -166,7 +181,10 @@ const Filters = ({ getBoardsData, setBoardsData, isFiltered, setIsFiltered }) =>
             </AccordionSummary>
             <AccordionDetails>
               <Typography component={"span"}>
-                <button onClick={handleClearFilters}>Clear filters</button>
+                <Button variant="contained" color="secondary" onClick={handleClearFilters}>
+                  Clear filters
+                </Button>
+
                 <Search
                   searchTerm={searchTerm}
                   setSearchTerm={setSearchTerm}
@@ -176,30 +194,35 @@ const Filters = ({ getBoardsData, setBoardsData, isFiltered, setIsFiltered }) =>
 
                 <h2>brand</h2>
                 <FilterButton
+                  isFiltered
                   setIsFiltered={setIsFiltered}
                   filterTerms={brandFilterTerms}
                   setFilterTerms={setBrandFilterTerms}
                   filterButtonText="Landyachtz"
                 />
                 <FilterButton
+                  isFiltered
                   setIsFiltered={setIsFiltered}
                   filterTerms={brandFilterTerms}
                   setFilterTerms={setBrandFilterTerms}
                   filterButtonText="Zenit"
                 />
                 <FilterButton
+                  isFiltered
                   setIsFiltered={setIsFiltered}
                   filterTerms={brandFilterTerms}
                   setFilterTerms={setBrandFilterTerms}
                   filterButtonText="Moonshine MFG"
                 />
                 <FilterButton
+                  isFiltered
                   setIsFiltered={setIsFiltered}
                   filterTerms={brandFilterTerms}
                   setFilterTerms={setBrandFilterTerms}
                   filterButtonText="Loaded"
                 />
                 <FilterButton
+                  isFiltered
                   setIsFiltered={setIsFiltered}
                   filterTerms={brandFilterTerms}
                   setFilterTerms={setBrandFilterTerms}
@@ -208,18 +231,21 @@ const Filters = ({ getBoardsData, setBoardsData, isFiltered, setIsFiltered }) =>
 
                 <h2>category</h2>
                 <FilterButton
+                  isFiltered
                   setIsFiltered={setIsFiltered}
                   filterTerms={categoryFilterTerms}
                   setFilterTerms={setCategoryFilterTerms}
                   filterButtonText="Dance"
                 />
                 <FilterButton
+                  isFiltered
                   setIsFiltered={setIsFiltered}
                   filterTerms={categoryFilterTerms}
                   setFilterTerms={setCategoryFilterTerms}
                   filterButtonText="Freestyle"
                 />
                 <FilterButton
+                  isFiltered
                   setIsFiltered={setIsFiltered}
                   filterTerms={categoryFilterTerms}
                   setFilterTerms={setCategoryFilterTerms}
@@ -228,18 +254,21 @@ const Filters = ({ getBoardsData, setBoardsData, isFiltered, setIsFiltered }) =>
 
                 <h2>flex</h2>
                 <FilterButton
+                  isFiltered
                   setIsFiltered={setIsFiltered}
                   filterTerms={flexFilterTerms}
                   setFilterTerms={setFlexFilterTerms}
                   filterButtonText="Soft"
                 />
                 <FilterButton
+                  isFiltered
                   setIsFiltered={setIsFiltered}
                   filterTerms={flexFilterTerms}
                   setFilterTerms={setFlexFilterTerms}
                   filterButtonText="Medium"
                 />
                 <FilterButton
+                  isFiltered
                   setIsFiltered={setIsFiltered}
                   filterTerms={flexFilterTerms}
                   setFilterTerms={setFlexFilterTerms}

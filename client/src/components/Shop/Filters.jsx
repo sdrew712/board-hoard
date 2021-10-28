@@ -13,7 +13,7 @@ import DropDown from "./DropDown";
 import Search from "./Search";
 
 const Filters = ({ getBoardsData, setBoardsData, isFiltered, setIsFiltered }) => {
-  const { width } = useWindowDimensions();
+  const { isMobile } = useWindowDimensions();
 
   const [brandFilterTerms, setBrandFilterTerms] = useState([]);
   const [categoryFilterTerms, setCategoryFilterTerms] = useState([]);
@@ -65,7 +65,7 @@ const Filters = ({ getBoardsData, setBoardsData, isFiltered, setIsFiltered }) =>
   };
 
   const handleFilterDisplay = () => {
-    if (width > 768) {
+    if (!isMobile()) {
       return (
         <div>
           <h2>Filters</h2>

@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react";
 
-function getWindowDimensions() {
+const getWindowDimensions = () => {
   const { innerWidth: width, innerHeight: height } = window;
   return {
     width,
     height,
   };
-}
+};
 
-export default function useWindowDimensions() {
+const useWindowDimensions = () => {
   const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
 
   //update the dimensions on window resize
@@ -21,5 +21,15 @@ export default function useWindowDimensions() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  return windowDimensions;
-}
+  const isMobile = () => {
+    if (window.innerWidth < 768) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  return { windowDimensions, isMobile };
+};
+
+export default useWindowDimensions;

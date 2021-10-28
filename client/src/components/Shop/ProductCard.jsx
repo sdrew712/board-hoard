@@ -6,16 +6,17 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 
-const ProductCard = ({ id, imageURL, name, price, brand, category, flex, description, length, width, wheelbase }) => {
+const ProductCard = ({ id, imageURL, name, price, brand, category, flex, length }) => {
   return (
     <>
       <Link to={`/shop/${id}`} style={{ textDecoration: "none" }}>
-        <Card sx={{ maxWidth: 250, margin: 1, height: 520 }}>
+        <Card className="product-card">
           <CardMedia
             component="img"
             image={imageURL}
             alt={`${name} deck`}
-            style={{ width: "250px", paddingTop: "1rem", paddingBottom: "1rem" }}
+            className="board-img"
+            style={{ width: "250px", paddingTop: "20px", paddingBottom: "10px" }}
           />
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">

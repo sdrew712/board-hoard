@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { filterBoardsData } from "./boardsData";
 import useWindowDimensions from "../../hooks/useWindowDimensions";
+import "./index.scss";
 
 import Button from "@mui/material/Button";
 import { Accordion } from "@mui/material";
@@ -65,6 +66,7 @@ const Filters = ({ getBoardsData, setBoardsData, isFiltered, setIsFiltered }) =>
     setSortByTerm("");
   };
 
+  //returns either normal filters or dropdown depending on window size
   const handleFilterDisplay = () => {
     if (!isMobile()) {
       return (
@@ -294,7 +296,7 @@ const Filters = ({ getBoardsData, setBoardsData, isFiltered, setIsFiltered }) =>
   };
 
   return (
-    <div style={{ float: "left" }}>
+    <div id="filters">
       <div>{handleFilterDisplay()}</div>
     </div>
   );

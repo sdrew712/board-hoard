@@ -47,23 +47,14 @@ const ShopPage = () => {
   };
 
   return (
-    <div>
+    <div id="shop-page">
       <Filters
         getBoardsData={getBoardsData}
         setBoardsData={setBoardsData}
         isFiltered={isFiltered}
         setIsFiltered={setIsFiltered}
       />
-      <div
-        style={{
-          float: "right",
-          width: "70%",
-          display: "flex",
-          flexWrap: "wrap",
-        }}
-      >
-        {boardsRenderer()}
-      </div>
+      <div id="boards-container">{boardsRenderer()}</div>
     </div>
   );
 };

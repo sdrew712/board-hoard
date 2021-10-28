@@ -27,7 +27,7 @@ export const checkout = async (req: Request, res: Response) => {
     line_items: lineItems,
     mode: "payment",
     success_url: "http://localhost:3000/success",
-    cancel_url: "http://localhost:3000/cart",
+    cancel_url: "http://localhost:3000/shop",
   });
   res.redirect(303, session.url);
 };

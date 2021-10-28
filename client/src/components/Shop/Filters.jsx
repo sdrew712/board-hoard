@@ -66,6 +66,46 @@ const Filters = ({ getBoardsData, setBoardsData, isFiltered, setIsFiltered }) =>
     setSortByTerm("");
   };
 
+  //text for filters
+  const brandFilterButtonText = ["Landyachtz", "Zenit", "Moonshine MFG", "Loaded", "Rayne"];
+  const categoryFilterButtonText = ["Dance", "Freestyle", "Downhill"];
+  const flexFilterButtonText = ["Soft", "Medium", "Stiff"];
+
+  //map over filter buttons text and return filter buttons for each
+
+  const brandFilterButtons = brandFilterButtonText.map((text) => (
+    <FilterButton
+      key={text}
+      isFiltered={isFiltered}
+      setIsFiltered={setIsFiltered}
+      filterTerms={brandFilterTerms}
+      setFilterTerms={setBrandFilterTerms}
+      filterButtonText={text}
+    />
+  ));
+
+  const categoryFilterButtons = categoryFilterButtonText.map((text) => (
+    <FilterButton
+      key={text}
+      isFiltered={isFiltered}
+      setIsFiltered={setIsFiltered}
+      filterTerms={categoryFilterTerms}
+      setFilterTerms={setCategoryFilterTerms}
+      filterButtonText={text}
+    />
+  ));
+
+  const flexFilterButtons = flexFilterButtonText.map((text) => (
+    <FilterButton
+      key={text}
+      isFiltered={isFiltered}
+      setIsFiltered={setIsFiltered}
+      filterTerms={flexFilterTerms}
+      setFilterTerms={setFlexFilterTerms}
+      filterButtonText={text}
+    />
+  ));
+
   //returns either normal filters or dropdown depending on window size
   const handleFilterDisplay = () => {
     if (!isMobile()) {
@@ -82,86 +122,16 @@ const Filters = ({ getBoardsData, setBoardsData, isFiltered, setIsFiltered }) =>
             setIsFiltered={setIsFiltered}
             setDebouncedSearchTerm={setDebouncedSearchTerm}
           />
+
           <h2>brand</h2>
-          <FilterButton
-            isFiltered={isFiltered}
-            setIsFiltered={setIsFiltered}
-            filterTerms={brandFilterTerms}
-            setFilterTerms={setBrandFilterTerms}
-            filterButtonText="Landyachtz"
-          />
-          <FilterButton
-            isFiltered={isFiltered}
-            setIsFiltered={setIsFiltered}
-            filterTerms={brandFilterTerms}
-            setFilterTerms={setBrandFilterTerms}
-            filterButtonText="Zenit"
-          />
-          <FilterButton
-            isFiltered={isFiltered}
-            setIsFiltered={setIsFiltered}
-            filterTerms={brandFilterTerms}
-            setFilterTerms={setBrandFilterTerms}
-            filterButtonText="Moonshine MFG"
-          />
-          <FilterButton
-            isFiltered={isFiltered}
-            setIsFiltered={setIsFiltered}
-            filterTerms={brandFilterTerms}
-            setFilterTerms={setBrandFilterTerms}
-            filterButtonText="Loaded"
-          />
-          <FilterButton
-            isFiltered={isFiltered}
-            setIsFiltered={setIsFiltered}
-            filterTerms={brandFilterTerms}
-            setFilterTerms={setBrandFilterTerms}
-            filterButtonText="Rayne"
-          />
+          <div>{brandFilterButtons}</div>
+
           <h2>category</h2>
-          <FilterButton
-            isFiltered={isFiltered}
-            setIsFiltered={setIsFiltered}
-            filterTerms={categoryFilterTerms}
-            setFilterTerms={setCategoryFilterTerms}
-            filterButtonText="Dance"
-          />
-          <FilterButton
-            isFiltered={isFiltered}
-            setIsFiltered={setIsFiltered}
-            filterTerms={categoryFilterTerms}
-            setFilterTerms={setCategoryFilterTerms}
-            filterButtonText="Freestyle"
-          />
-          <FilterButton
-            isFiltered={isFiltered}
-            setIsFiltered={setIsFiltered}
-            filterTerms={categoryFilterTerms}
-            setFilterTerms={setCategoryFilterTerms}
-            filterButtonText="Downhill"
-          />
+          <div>{categoryFilterButtons}</div>
+
           <h2>flex</h2>
-          <FilterButton
-            isFiltered={isFiltered}
-            setIsFiltered={setIsFiltered}
-            filterTerms={flexFilterTerms}
-            setFilterTerms={setFlexFilterTerms}
-            filterButtonText="Soft"
-          />
-          <FilterButton
-            isFiltered={isFiltered}
-            setIsFiltered={setIsFiltered}
-            filterTerms={flexFilterTerms}
-            setFilterTerms={setFlexFilterTerms}
-            filterButtonText="Medium"
-          />
-          <FilterButton
-            isFiltered={isFiltered}
-            setIsFiltered={setIsFiltered}
-            filterTerms={flexFilterTerms}
-            setFilterTerms={setFlexFilterTerms}
-            filterButtonText="Stiff"
-          />
+          <div>{flexFilterButtons}</div>
+
           <h2>Sort by</h2>
           <DropDown
             labelOptions={[
@@ -195,87 +165,13 @@ const Filters = ({ getBoardsData, setBoardsData, isFiltered, setIsFiltered }) =>
                 />
 
                 <h2>brand</h2>
-                <FilterButton
-                  isFiltered
-                  setIsFiltered={setIsFiltered}
-                  filterTerms={brandFilterTerms}
-                  setFilterTerms={setBrandFilterTerms}
-                  filterButtonText="Landyachtz"
-                />
-                <FilterButton
-                  isFiltered
-                  setIsFiltered={setIsFiltered}
-                  filterTerms={brandFilterTerms}
-                  setFilterTerms={setBrandFilterTerms}
-                  filterButtonText="Zenit"
-                />
-                <FilterButton
-                  isFiltered
-                  setIsFiltered={setIsFiltered}
-                  filterTerms={brandFilterTerms}
-                  setFilterTerms={setBrandFilterTerms}
-                  filterButtonText="Moonshine MFG"
-                />
-                <FilterButton
-                  isFiltered
-                  setIsFiltered={setIsFiltered}
-                  filterTerms={brandFilterTerms}
-                  setFilterTerms={setBrandFilterTerms}
-                  filterButtonText="Loaded"
-                />
-                <FilterButton
-                  isFiltered
-                  setIsFiltered={setIsFiltered}
-                  filterTerms={brandFilterTerms}
-                  setFilterTerms={setBrandFilterTerms}
-                  filterButtonText="Rayne"
-                />
+                <div>{brandFilterButtons}</div>
 
                 <h2>category</h2>
-                <FilterButton
-                  isFiltered
-                  setIsFiltered={setIsFiltered}
-                  filterTerms={categoryFilterTerms}
-                  setFilterTerms={setCategoryFilterTerms}
-                  filterButtonText="Dance"
-                />
-                <FilterButton
-                  isFiltered
-                  setIsFiltered={setIsFiltered}
-                  filterTerms={categoryFilterTerms}
-                  setFilterTerms={setCategoryFilterTerms}
-                  filterButtonText="Freestyle"
-                />
-                <FilterButton
-                  isFiltered
-                  setIsFiltered={setIsFiltered}
-                  filterTerms={categoryFilterTerms}
-                  setFilterTerms={setCategoryFilterTerms}
-                  filterButtonText="Downhill"
-                />
+                <div>{categoryFilterButtons}</div>
 
                 <h2>flex</h2>
-                <FilterButton
-                  isFiltered
-                  setIsFiltered={setIsFiltered}
-                  filterTerms={flexFilterTerms}
-                  setFilterTerms={setFlexFilterTerms}
-                  filterButtonText="Soft"
-                />
-                <FilterButton
-                  isFiltered
-                  setIsFiltered={setIsFiltered}
-                  filterTerms={flexFilterTerms}
-                  setFilterTerms={setFlexFilterTerms}
-                  filterButtonText="Medium"
-                />
-                <FilterButton
-                  isFiltered
-                  setIsFiltered={setIsFiltered}
-                  filterTerms={flexFilterTerms}
-                  setFilterTerms={setFlexFilterTerms}
-                  filterButtonText="Stiff"
-                />
+                <div>{flexFilterButtons}</div>
 
                 <h2>Sort by</h2>
                 <DropDown

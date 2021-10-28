@@ -9,6 +9,7 @@ import ShopPage from "./Shop";
 import ProductPage from "./Shop/ProductPage";
 import Success from "./Cart/Success";
 import NotFoundPage from "./NotFoundPage/NotFoundPage";
+import Footer from "./Footer";
 
 //create mui theme
 const theme = createTheme({
@@ -41,6 +42,7 @@ const App = () => {
             </Route>
           </Switch>
         </div>
+        <Footer />
       </Router>
     </ThemeProvider>
   );

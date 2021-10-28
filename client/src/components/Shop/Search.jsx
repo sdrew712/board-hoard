@@ -1,5 +1,7 @@
 import React, { useEffect } from "react";
 
+import TextField from "@material-ui/core/TextField";
+
 const Search = ({ setIsFiltered, searchTerm, setSearchTerm, setDebouncedSearchTerm }) => {
   //create timer for debounced term
   useEffect(() => {
@@ -14,11 +16,10 @@ const Search = ({ setIsFiltered, searchTerm, setSearchTerm, setDebouncedSearchTe
 
   return (
     <div>
-      <input
-        type="text"
-        id="search"
-        name="searchtext"
-        placeholder="Search"
+      <TextField
+        id="standard-basic"
+        label="Search"
+        variant="standard"
         value={searchTerm}
         onChange={({ target }) => {
           setSearchTerm(target.value);

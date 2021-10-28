@@ -5,7 +5,7 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 
-const DropDown = ({ labelText, labelOptions, filterTerm, setFilterTerm, setIsFiltered }) => {
+const DropDown = ({ labelText, labelOptions, setFilterTerm, setIsFiltered }) => {
   //map over labelOptions and return a list of options
   const menuItems = labelOptions.map((option) => {
     return (

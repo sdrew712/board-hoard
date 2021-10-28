@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Product from "./Product";
+import ProductCard from "./ProductCard";
 import { getBoardsData } from "./boardsData";
 import Filters from "./Filters";
 
@@ -18,7 +18,7 @@ const ShopPage = () => {
 
   const boardRenderer = boardsData.map((data) => {
     return (
-      <Product
+      <ProductCard
         key={data[1].id}
         id={data[1].id}
         name={data[1].name}

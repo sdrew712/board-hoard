@@ -8,7 +8,11 @@ import Select from "@mui/material/Select";
 const DropDown = ({ labelText, labelOptions, filterTerm, setFilterTerm, setIsFiltered }) => {
   //map over labelOptions and return a list of options
   const menuItems = labelOptions.map((option) => {
-    return <MenuItem value={option.value}>{option.text}</MenuItem>;
+    return (
+      <MenuItem key={option.value} value={option.value}>
+        {option.text}
+      </MenuItem>
+    );
   });
 
   //when the user selects an option, set the filterTerm to the selected option's value

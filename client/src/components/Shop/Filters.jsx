@@ -68,13 +68,14 @@ const Filters = ({ getBoardsData, setBoardsData, isFiltered, setIsFiltered }) =>
     if (width > 768) {
       return (
         <div>
+          <h2>Filters</h2>
+          <button onClick={handleClearFilters}>Clear filters</button>
           <Search
             searchTerm={searchTerm}
             setSearchTerm={setSearchTerm}
             setIsFiltered={setIsFiltered}
             setDebouncedSearchTerm={setDebouncedSearchTerm}
           />
-
           <h2>brand</h2>
           <FilterButton
             setIsFiltered={setIsFiltered}
@@ -106,7 +107,6 @@ const Filters = ({ getBoardsData, setBoardsData, isFiltered, setIsFiltered }) =>
             setFilterTerms={setBrandFilterTerms}
             filterButtonText="Rayne"
           />
-
           <h2>category</h2>
           <FilterButton
             setIsFiltered={setIsFiltered}
@@ -126,7 +126,6 @@ const Filters = ({ getBoardsData, setBoardsData, isFiltered, setIsFiltered }) =>
             setFilterTerms={setCategoryFilterTerms}
             filterButtonText="Downhill"
           />
-
           <h2>flex</h2>
           <FilterButton
             setIsFiltered={setIsFiltered}
@@ -146,7 +145,6 @@ const Filters = ({ getBoardsData, setBoardsData, isFiltered, setIsFiltered }) =>
             setFilterTerms={setFlexFilterTerms}
             filterButtonText="Stiff"
           />
-
           <h2>Sort by</h2>
           <DropDown
             labelOptions={[
@@ -164,10 +162,11 @@ const Filters = ({ getBoardsData, setBoardsData, isFiltered, setIsFiltered }) =>
         <div>
           <Accordion>
             <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel1a-content" id="panel1a-header">
-              <Typography>Accordion 1</Typography>
+              <Typography>Filters</Typography>
             </AccordionSummary>
             <AccordionDetails>
               <Typography>
+                <button onClick={handleClearFilters}>Clear filters</button>
                 <div>
                   <Search
                     searchTerm={searchTerm}
@@ -269,12 +268,7 @@ const Filters = ({ getBoardsData, setBoardsData, isFiltered, setIsFiltered }) =>
 
   return (
     <div style={{ float: "left" }}>
-      Filters
-      <div>
-        <button onClick={handleClearFilters}>Clear filters</button>
-
-        {handleFilterDisplay()}
-      </div>
+      <div>{handleFilterDisplay()}</div>
     </div>
   );
 };

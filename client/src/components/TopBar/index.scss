@@ -1,9 +1,6 @@
-#top-bar {
-  padding: 20px 5px 10px 5px;
-}
-
 .bh-logo {
   width: 150px;
+  padding: 20px 5px 10px 5px;
 }
 
 .nav-item {
@@ -14,11 +11,8 @@
 }
 
 @media (min-width: 768px) {
-  #top-bar {
-    padding: 20px 20px 10px 20px;
-  }
-
   .bh-logo {
-    width: 200px;
+    width: 250px;
+    padding: 20px 20px 10px 20px;
   }
 }

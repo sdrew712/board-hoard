@@ -30,7 +30,7 @@ const App = () => {
       <Router>
         <TopBar />
 
-        <div style={{ paddingTop: "56px" }}>
+        <div style={{ paddingTop: "94px" }}>
           <Switch>
             <Route exact path="/" component={HomePage} />
             <Route exact path="/shop" component={ShopPage} />

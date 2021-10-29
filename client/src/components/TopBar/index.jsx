@@ -12,11 +12,9 @@ import Toolbar from "@mui/material/Toolbar";
 import CssBaseline from "@mui/material/CssBaseline";
 import List from "@mui/material/List";
 import Typography from "@mui/material/Typography";
-import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-import ListItem from "@mui/material/ListItem";
 
 import LocalMallIcon from "@mui/icons-material/LocalMall";
 
@@ -103,13 +101,9 @@ export default function TopBar() {
             {theme.direction === "rtl" ? <ChevronLeftIcon /> : <ChevronRightIcon />}
           </IconButton>
         </DrawerHeader>
-        <Divider />
         <List>
-          <ListItem>
-            <Cart />
-          </ListItem>
+          <Cart />
         </List>
-        <Divider />
       </Drawer>
     </Box>
   );

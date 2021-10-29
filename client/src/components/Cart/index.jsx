@@ -1,6 +1,9 @@
 import React from "react";
 import useCart from "../../hooks/useCart";
 
+import Divider from "@mui/material/Divider";
+import ListItem from "@mui/material/ListItem";
+
 const Cart = () => {
   const { cart, setCart } = useCart();
 
@@ -31,16 +34,21 @@ const Cart = () => {
   const cartItems = cart.map((item) => {
     return (
       <div key={item.productId}>
-        <h2>{item.productName}</h2>
-        <p>${item.productPrice * item.quantity}</p>
-        <label htmlFor="quantity">Quantity:</label>
-        <input
-          type="number"
-          name="quantity"
-          id="quantity"
-          defaultValue={item.quantity}
-          onChange={({ target }) => handleQuantityChange(target.value, item.productId)}
-        />
+        <ListItem>
+          <div>
+            <h2>{item.productName}</h2>
+            <p>${item.productPrice * item.quantity}</p>
+            <label htmlFor="quantity">Quantity:</label>
+            <input
+              type="number"
+              name="quantity"
+              id="quantity"
+              defaultValue={item.quantity}
+              onChange={({ target }) => handleQuantityChange(target.value, item.productId)}
+            />
+          </div>
+        </ListItem>
+        <Divider />
       </div>
     );
   });

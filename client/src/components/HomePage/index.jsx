@@ -1,11 +1,15 @@
 import React from "react";
-import NavBox from "./NavBox";
+import { Link } from "react-router-dom";
+import video from "../videos/longebaord.mp4";
 
 const HomePage = () => {
   return (
-    <div>
-      <NavBox />
-    </div>
+    <Link to={`/shop`}>
+      <video className="videoTag" autoPlay loop muted>
+        <source src={video} type="video/mp4" />
+      </video>
+      <h1>Up your longboarding game</h1>
+    </Link>
   );
 };
 

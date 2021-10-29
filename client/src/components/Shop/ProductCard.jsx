@@ -19,7 +19,7 @@ const ProductCard = ({ id, imageURL, name, price, brand, category, flex, length 
             style={{ width: "250px", paddingTop: "20px", paddingBottom: "10px" }}
           />
           <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
+            <Typography gutterBottom variant="h5" sx={{ fontFamily: "Bebas Neue, cursive" }} component="div">
               {name}
             </Typography>
             <Typography variant="h6" color="text.secondary">

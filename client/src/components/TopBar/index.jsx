@@ -68,7 +68,13 @@ export default function TopBar() {
               <img src="/images/BoardHoardHoriz.png" alt="Board Hoard Home" className="bh-logo" />
             </NavLink>
           </Typography>
-          <Typography variant="h6" noWrap sx={{ flexGrow: 1.25 }} component="div" color="secondary">
+          <Typography
+            variant="h5"
+            noWrap
+            sx={{ flexGrow: 1.25, fontFamily: "Bebas Neue, cursive", letterSpacing: "8px" }}
+            component="div"
+            color="secondary"
+          >
             <NavLink to="/shop" exact activeClassName="active" className="nav-item">
               SHOP
             </NavLink>

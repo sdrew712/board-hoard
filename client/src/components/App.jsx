@@ -10,6 +10,7 @@ import ProductPage from "./Shop/ProductPage";
 import Success from "./Cart/Success";
 import NotFoundPage from "./NotFoundPage/NotFoundPage";
 import Footer from "./Footer";
+import NotBrokenNav from "./TopBar/NotBrokenNav";
 
 //create mui theme
 const theme = createTheme({
@@ -27,7 +28,8 @@ const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <Router>
-        <TopBar />
+        {/* <TopBar /> */}
+        <NotBrokenNav />
 
         <div style={{ paddingTop: "56px" }}>
           <Switch>

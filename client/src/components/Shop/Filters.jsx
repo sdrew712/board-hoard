@@ -112,9 +112,11 @@ const Filters = ({ getBoardsData, setBoardsData, isFiltered, setIsFiltered }) =>
       return (
         <div>
           <h2>Filters</h2>
-          <Button variant="contained" color="secondary" onClick={handleClearFilters}>
-            Clear filters
-          </Button>
+          <div className="button">
+            <Button variant="contained" color="secondary" onClick={handleClearFilters}>
+              Clear filters
+            </Button>
+          </div>
 
           <Search
             searchTerm={searchTerm}

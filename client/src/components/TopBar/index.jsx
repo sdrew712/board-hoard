@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import "./index.scss";
 
 import Cart from "../Cart";
 
@@ -47,17 +48,17 @@ const TopBar = (props) => {
     <HideOnScroll {...props}>
       <AppBar position="fixed" open={open}>
         <Toolbar>
-          <Typography variant="h6" component="div">
-            <nav>
+          <nav>
+            <Typography variant="h6" component="div" id="top-bar">
               <NavLink to="/" exact activeClassName="active">
-                Board Hoard
+                <img src="/images/BoardHoardHoriz.png" alt="Board Hoard Home" className="bh-logo" />
               </NavLink>
-              <NavLink to="/shop" exact activeClassName="active">
+              <NavLink to="/shop" exact activeClassName="active" className="nav-item">
                 Shop
               </NavLink>
               <Cart open={open} setOpen={setOpen} drawerWidth={drawerWidth} />
-            </nav>
-          </Typography>
+            </Typography>
+          </nav>
         </Toolbar>
       </AppBar>
     </HideOnScroll>

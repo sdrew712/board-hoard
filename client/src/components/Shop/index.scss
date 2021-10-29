@@ -15,16 +15,15 @@
   #shop-page {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
     align-items: flex-start;
   }
 
   #filters {
-    width: 800px;
+    width: 200px;
   }
 
   #boards-container {
-    padding-left: 100px;
+    padding-left: 200px;
     display: flex;
     flex-wrap: wrap;
   }

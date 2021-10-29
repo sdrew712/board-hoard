@@ -78,7 +78,7 @@ const Cart = ({ open, setOpen, drawerWidth }) => {
   };
 
   return (
-    <span sx={{ display: "flex" }}>
+    <>
       <CssBaseline />
       <LocalMallIcon
         color="secondary"
@@ -113,7 +113,7 @@ const Cart = ({ open, setOpen, drawerWidth }) => {
           <button type="submit">Checkout</button>
         </form>
       </Drawer>
-    </span>
+    </>
   );
 };
 

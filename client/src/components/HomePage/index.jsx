@@ -13,7 +13,7 @@ const HomePage = () => {
           </video>
         </div>
 
-        <div className="slogan">
+        <div className="slogan-container">
           <Link to={`/shop`}>
             <h1>Up your longboarding game</h1>
           </Link>

@@ -37,6 +37,7 @@ const FilterButton = ({ isFiltered, setIsFiltered, filterTerms, setFilterTerms, 
     <Button
       variant={toggled && isFiltered ? "contained" : "outlined"}
       color="secondary"
+      sx={{ margin: "5px" }}
       onClick={() => {
         handleFilterTerms(filterButtonText);
         setToggled(!toggled);

@@ -71,7 +71,7 @@ export default function TopBar() {
           <Typography
             variant="h5"
             noWrap
-            sx={{ flexGrow: 1.25, fontFamily: "Bebas Neue, cursive", letterSpacing: "8px" }}
+            sx={{ flexGrow: 1.5, fontFamily: "Bebas Neue, cursive", letterSpacing: "8px" }}
             component="div"
             color="secondary"
           >

@@ -47,15 +47,18 @@ const ShopPage = () => {
   };
 
   return (
-    <div id="shop-page">
-      <Filters
-        getBoardsData={getBoardsData}
-        setBoardsData={setBoardsData}
-        isFiltered={isFiltered}
-        setIsFiltered={setIsFiltered}
-      />
-      <div id="boards-container">{boardsRenderer()}</div>
-    </div>
+    <>
+      <h1 className="page-title">{isFiltered ? "Decks to fit your style" : "All decks"}</h1>
+      <div id="shop-page">
+        <Filters
+          getBoardsData={getBoardsData}
+          setBoardsData={setBoardsData}
+          isFiltered={isFiltered}
+          setIsFiltered={setIsFiltered}
+        />
+        <div id="boards-container">{boardsRenderer()}</div>
+      </div>
+    </>
   );
 };
 

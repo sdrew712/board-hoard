@@ -1,27 +1,33 @@
-import { useState, useEffect } from "react";
+import { useCallback, useState, useEffect } from "react";
+
+const loadCartFromStorage = () => {
+  try {
+    return JSON.parse(window.localStorage.getItem("cart")) || [];
+  } catch (err) {
+    console.error(err);
+  }
+};
 
 const useCart = () => {
-  const [cart, setCart] = useState([]);
-  const [initialized, setInitialized] = useState(false);
+  const [cart, setCart] = useState(loadCartFromStorage);
 
-  //if cart is not initialized, fetch it from localStorage
+  const handleStorageChange = useCallback((e) => {
+    e.preventDefault();
+    setCart(loadCartFromStorage());
+  }, []);
+
   useEffect(() => {
-    if (!initialized) {
-      try {
-        const _cart = JSON.parse(localStorage.getItem("cart"));
-        setCart(_cart || []);
-      } catch (err) {
-        console.error(err);
-      }
-      //then initialize cart
-      setInitialized(true);
-    }
-  }, [initialized]);
+    window.addEventListener("storage", handleStorageChange);
+    return () => {
+      window.removeEventListener("storage", handleStorageChange);
+    };
+  }, [handleStorageChange]);
 
   //update cart in localStorage
   const setCartLocalStorage = (cart) => {
     setCart(cart);
-    localStorage.setItem("cart", JSON.stringify(cart));
+    window.localStorage.setItem("cart", JSON.stringify(cart));
+    window.dispatchEvent(new CustomEvent("storage"));
   };
 
   return { cart, setCart: setCartLocalStorage };

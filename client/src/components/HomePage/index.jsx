@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import video from "../videos/longebaord.mp4";
 import "./index.scss";
 
+import ShopNowButton from "./ShopNowButton";
+
 const HomePage = () => {
   return (
     <>
@@ -14,8 +16,10 @@ const HomePage = () => {
         </div>
 
         <div className="slogan-container">
+          <h1>Up your longboarding game</h1>
+
           <Link to={`/shop`}>
-            <h1>Up your longboarding game</h1>
+            <ShopNowButton />
           </Link>
         </div>
       </div>

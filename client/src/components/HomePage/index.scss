@@ -1,5 +1,5 @@
 .home-container {
-  height: 100vh;
+  height: 100%;
 }
 
 .video {
@@ -9,11 +9,9 @@
 
 .slogan-container {
   background-color: #000;
-  opacity: 0.5;
+  opacity: 0.6;
   position: absolute;
   top: 50%;
   width: 100%;
   text-align: center;
-  // -webkit-transform: translate3d(0, -50%, 0);
-  // transform: translate3d(0, -50%, 0);
 }

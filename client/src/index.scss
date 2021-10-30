@@ -5,7 +5,6 @@ $secondary-color: #f67671;
 body {
   font: 100% $font-stack;
   color: $secondary-color;
-  font-family: "Bebas Neue", cursive;
 }
 
 h1 {
@@ -15,11 +14,15 @@ h1 {
   font-size: 4.5rem;
 }
 
-h2 {
+.main-font {
   font-family: "Bebas Neue", cursive;
   letter-spacing: 4px;
 }
 
 a {
   text-decoration: none;
+}
+
+p {
+  margin: 0;
 }

@@ -111,7 +111,7 @@ const Filters = ({ getBoardsData, setBoardsData, isFiltered, setIsFiltered }) =>
     if (!isMobile()) {
       return (
         <div>
-          <h2>Filters</h2>
+          <h2 className="main-font">Filters</h2>
           <div className="button">
             <Button variant="contained" color="secondary" onClick={handleClearFilters}>
               Clear filters
@@ -125,16 +125,16 @@ const Filters = ({ getBoardsData, setBoardsData, isFiltered, setIsFiltered }) =>
             setDebouncedSearchTerm={setDebouncedSearchTerm}
           />
 
-          <h2>brand</h2>
+          <h2 className="main-font">brand</h2>
           <div>{brandFilterButtons}</div>
 
-          <h2>category</h2>
+          <h2 className="main-font">category</h2>
           <div>{categoryFilterButtons}</div>
 
-          <h2>flex</h2>
+          <h2 className="main-font">flex</h2>
           <div>{flexFilterButtons}</div>
 
-          <h2>Sort by</h2>
+          <h2 className="main-font">Sort by</h2>
           <DropDown
             labelOptions={[
               { text: "Lowest Price", value: "asc" },
@@ -166,16 +166,16 @@ const Filters = ({ getBoardsData, setBoardsData, isFiltered, setIsFiltered }) =>
                   setDebouncedSearchTerm={setDebouncedSearchTerm}
                 />
 
-                <h2>brand</h2>
+                <h2 className="main-font">brand</h2>
                 <div>{brandFilterButtons}</div>
 
-                <h2>category</h2>
+                <h2 className="main-font">category</h2>
                 <div>{categoryFilterButtons}</div>
 
-                <h2>flex</h2>
+                <h2 className="main-font">flex</h2>
                 <div>{flexFilterButtons}</div>
 
-                <h2>Sort by</h2>
+                <h2 className="main-font">Sort by</h2>
                 <DropDown
                   labelOptions={[
                     { text: "Lowest Price", value: "asc" },

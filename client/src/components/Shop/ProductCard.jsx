@@ -19,24 +19,12 @@ const ProductCard = ({ id, imageURL, name, price, brand, category, flex, length 
             style={{ width: "250px", paddingTop: "20px", paddingBottom: "10px" }}
           />
           <CardContent>
-            <Typography gutterBottom variant="h5" sx={{ fontFamily: "Bebas Neue, cursive" }} component="div">
-              {name}
-            </Typography>
-            <Typography variant="h6" color="text.secondary">
-              ${price}
-            </Typography>
-            <Typography variant="h6" color="text.secondary">
-              {brand}
-            </Typography>
-            <Typography variant="body" color="text.secondary">
-              {category}
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-              {length}"
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-              {flex}
-            </Typography>
+            <h3 className="product-name">{name}</h3>
+            <div className="product-details-container">
+              <p className="product-brand">{brand}</p>
+              <p className="product-price">${price}</p>
+            </div>
+            <p className="product-length">{length}"</p>
           </CardContent>
         </Card>
       </Link>

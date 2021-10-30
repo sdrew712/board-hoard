@@ -6,9 +6,8 @@
 }
 
 .page-title {
-  padding-top: 50px;
-  padding-bottom: 50px;
-  font-size: 4rem;
+  padding: 30px 20px 30px 20px;
+  font-size: 3rem;
   text-align: center;
   font-family: "Bebas Neue", cursive;
   letter-spacing: 4px;
@@ -60,7 +59,17 @@
   min-width: 200px;
 }
 
+#boards-container {
+  padding-top: 50px;
+}
+
 @media (min-width: 768px) {
+  .page-title {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    font-size: 4rem;
+  }
+
   #shop-page {
     display: flex;
     flex-direction: row;
@@ -73,7 +82,7 @@
 
   #boards-container {
     padding-left: 50px;
-
+    padding-top: 0;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;

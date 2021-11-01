@@ -43,7 +43,7 @@ const Cart = () => {
               type="number"
               name="quantity"
               id="quantity"
-              defaultValue={item.quantity}
+              value={item.quantity}
               onChange={({ target }) => handleQuantityChange(target.value, item.productId)}
             />
           </div>

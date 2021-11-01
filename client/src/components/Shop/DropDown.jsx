@@ -5,7 +5,7 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 
-const DropDown = ({ labelText, labelOptions, setFilterTerm, setIsFiltered }) => {
+const DropDown = ({ labelOptions, setFilterTerm, setIsFiltered, handleClearFilters }) => {
   //map over labelOptions and return a list of options
   const menuItems = labelOptions.map((option) => {
     return (
@@ -17,15 +17,12 @@ const DropDown = ({ labelText, labelOptions, setFilterTerm, setIsFiltered }) => 
 
   //when the user selects an option, set the filterTerm to the selected option's value
   const handleDropdownChange = ({ target }) => {
+    console.log("hi");
     if (target.value) {
       setFilterTerm(target.value);
       setIsFiltered(true);
     }
     //if the user selects the empty option, set the filterTerm to an empty string
-    else {
-      setFilterTerm("");
-      setIsFiltered(false);
-    }
   };
 
   return (
@@ -37,9 +34,8 @@ const DropDown = ({ labelText, labelOptions, setFilterTerm, setIsFiltered }) => 
           id="demo-simple-select-standard"
           value=""
           onChange={handleDropdownChange}
-          label={labelText}
         >
-          <MenuItem value="">
+          <MenuItem value="" onClick={() => setFilterTerm("")}>
             <em>None</em>
           </MenuItem>
           {menuItems}

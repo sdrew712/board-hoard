@@ -7,6 +7,7 @@ import Loading from "./Loading";
 const ProductPage = (props) => {
   const { cart, setCart } = useCart();
   const [boardData, setBoardData] = useState({});
+  const [quantity, setQuantity] = useState(1);
 
   //get board id from URL
   const boardId = props.location.pathname.substring(6, 7);
@@ -27,7 +28,7 @@ const ProductPage = (props) => {
       productId: boardData.id,
       productName: boardData.name,
       productPrice: boardData.price,
-      quantity: parseInt(document.getElementById("quantity").value),
+      quantity: quantity,
     };
 
     //check if item already exists in cart
@@ -38,13 +39,14 @@ const ProductPage = (props) => {
       setCart([newItem]);
     }
     //if item exists, update quantity in copy
-    else if (existingItem) {
+    if (existingItem) {
       existingItem.quantity += newItem.quantity;
       //set cart to updated copy
       setCart(cartCopy);
     } else {
       //set cart to updated copy with new item
       setCart([...cartCopy, newItem]);
+      console.log(cart);
     }
   };
 
@@ -72,7 +74,14 @@ const ProductPage = (props) => {
         <p>Flex: {boardData.flex}</p>
       </div>
       <label htmlFor="quantity">Quantity:</label>
-      <input type="number" name="quantity" id="quantity" defaultValue="1" min="1" />
+      <input
+        type="number"
+        name="quantity"
+        id="quantity"
+        min="1"
+        defaultValue="1"
+        onChange={({ target }) => setQuantity(target.value)}
+      />
 
       <button onClick={handleAddToCart}>Add to cart</button>
     </div>

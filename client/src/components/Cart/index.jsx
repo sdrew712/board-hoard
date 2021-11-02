@@ -3,6 +3,9 @@ import useCart from "../../hooks/useCart";
 
 import Divider from "@mui/material/Divider";
 import ListItem from "@mui/material/ListItem";
+import TextField from "@mui/material/TextField";
+
+import "./index.scss";
 
 const Cart = () => {
   const { cart, setCart } = useCart();
@@ -10,11 +13,11 @@ const Cart = () => {
   //stringify cart to send to backend
   const stringCart = JSON.stringify(cart);
 
-  const handleQuantityChange = (quantity, productId) => {
+  const handleQuantityChange = (quantity, id) => {
     const cartCopy = [...cart];
 
     //find product in cart
-    const existingItem = cartCopy.find((cartItem) => cartItem.productId === productId);
+    const existingItem = cartCopy.find((cartItem) => cartItem.id === id);
     //find index of product in cart
     const productIndex = cartCopy.indexOf(existingItem);
 
@@ -30,21 +33,28 @@ const Cart = () => {
     }
   };
 
-  //map over the state of items in cart, returning html to display each
+  //map over the items in cart, returning html to display each
   const cartItems = cart.map((item) => {
     return (
-      <div key={item.productId}>
+      <div key={item.id}>
         <ListItem>
           <div>
-            <h2>{item.productName}</h2>
-            <p>${item.productPrice * item.quantity}</p>
-            <label htmlFor="quantity">Quantity:</label>
-            <input
+            <h2>{item.name}</h2>
+            <img src={item.imageURL} alt={`${item.name} deck`} className="cart-image" />
+            <h3>{item.brand}</h3>
+            <p>{item.length}"</p>
+            <p>{item.flex}</p>
+            <h3>${item.price * item.quantity}</h3>
+
+            <TextField
+              id="outlined-number"
+              label="Quantity"
               type="number"
-              name="quantity"
-              id="quantity"
               value={item.quantity}
-              onChange={({ target }) => handleQuantityChange(target.value, item.productId)}
+              onChange={({ target }) => handleQuantityChange(target.value, item.id)}
+              InputLabelProps={{
+                shrink: true,
+              }}
             />
           </div>
         </ListItem>

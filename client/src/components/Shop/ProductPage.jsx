@@ -25,9 +25,13 @@ const ProductPage = (props) => {
 
     //create new item object
     const newItem = {
-      productId: boardData.id,
-      productName: boardData.name,
-      productPrice: boardData.price,
+      id: boardData.id,
+      name: boardData.name,
+      price: boardData.price,
+      brand: boardData.brand,
+      imageURL: boardData.image_url,
+      length: boardData.length,
+      flex: boardData.flex,
       quantity: quantity,
     };
 
@@ -46,7 +50,6 @@ const ProductPage = (props) => {
     } else {
       //set cart to updated copy with new item
       setCart([...cartCopy, newItem]);
-      console.log(cart);
     }
   };
 

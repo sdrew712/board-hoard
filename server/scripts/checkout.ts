@@ -12,10 +12,10 @@ export const checkout = async (req: Request, res: Response) => {
       price_data: {
         currency: "usd",
         product_data: {
-          name: cartItem.productName,
+          name: cartItem.name,
         },
         //stripe requires cents, so change to cent amount
-        unit_amount: cartItem.productPrice * 100,
+        unit_amount: cartItem.price * 100,
       },
       quantity: cartItem.quantity,
     });

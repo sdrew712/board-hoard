@@ -16,7 +16,7 @@ const HomePage = () => {
         </div>
 
         <div className="slogan-container">
-          <h1>Up your longboarding game</h1>
+          <h1 id="slogan">Up your longboarding game</h1>
 
           <Link to={`/shop`}>
             <ShopNowButton />

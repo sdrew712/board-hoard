@@ -19,7 +19,7 @@ import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 
 import LocalMallIcon from "@mui/icons-material/LocalMall";
 
-let drawerWidth = 240;
+let drawerWidth = 300;
 
 const AppBar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== "open",

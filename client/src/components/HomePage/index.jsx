@@ -9,11 +9,9 @@ const HomePage = () => {
   return (
     <>
       <div className="home-container">
-        <div className="video-container">
-          <video className="video" autoPlay loop muted>
-            <source src={video} type="video/mp4" />
-          </video>
-        </div>
+        <video className="video" autoPlay loop muted>
+          <source src={video} type="video/mp4" />
+        </video>
 
         <div className="slogan-container">
           <h1 id="slogan">Up your longboarding game</h1>

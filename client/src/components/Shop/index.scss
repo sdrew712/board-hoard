@@ -67,6 +67,17 @@
   padding-top: 50px;
 }
 
+.product-utils-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 20px;
+}
+
+.product-quantity {
+  margin-bottom: 20px;
+}
+
 @media (min-width: 768px) {
   .page-title {
     padding-top: 50px;

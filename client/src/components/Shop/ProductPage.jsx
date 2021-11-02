@@ -83,18 +83,21 @@ const ProductPage = (props) => {
         <p>Flex: {boardData.flex}</p>
       </div>
 
-      <TextField
-        id="quantity"
-        label="Quantity"
-        type="number"
-        min="1"
-        defaultValue="1"
-        onChange={({ target }) => setQuantity(target.value)}
-      />
+      <div className="product-utils-container">
+        <div className="product-quantity">
+          <TextField
+            label="Quantity"
+            type="number"
+            min="1"
+            defaultValue="1"
+            onChange={({ target }) => setQuantity(target.value)}
+          />
+        </div>
 
-      <Button variant={"contained"} color="secondary" sx={{ margin: "5px" }} onClick={handleAddToCart}>
-        Add to cart
-      </Button>
+        <Button variant={"contained"} color="secondary" sx={{ margin: "5px" }} onClick={handleAddToCart}>
+          Add to cart
+        </Button>
+      </div>
     </div>
   );
 };

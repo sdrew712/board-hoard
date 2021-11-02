@@ -19,15 +19,18 @@ const ProductPage = (props) => {
     });
   }, [boardId]);
 
+  // console.log(cart);
+
   //add board to cart
   const handleAddToCart = () => {
     const cartCopy = [...cart];
+    // console.log(boardData);
 
     //create new item object
     const newItem = {
       id: boardData.id,
       name: boardData.name,
-      price: boardData.price,
+      price: parseInt(boardData.price),
       brand: boardData.brand,
       imageURL: boardData.image_url,
       length: boardData.length,
@@ -36,7 +39,7 @@ const ProductPage = (props) => {
     };
 
     //check if item already exists in cart
-    const existingItem = cartCopy.find((cartItem) => cartItem.productId === newItem.productId);
+    const existingItem = cartCopy.find((cartItem) => cartItem.id === newItem.id);
 
     //if nothing is in cart, set it to new item
     if (cartCopy.length === 0) {

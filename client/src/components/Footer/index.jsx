@@ -44,9 +44,17 @@ const Footer = () => {
 
       <div className="footer-item right">
         <h1 className="footer-item">Menu</h1>
-        <p>Contact Us</p>
-        <p>Returns & Exchanges</p>
-        <p>Terms of Service</p>
+        <NavLink to="/">
+          <p>Contact Us</p>
+        </NavLink>
+
+        <NavLink to="/">
+          <p>Returns & Exchanges</p>
+        </NavLink>
+
+        <NavLink to="/">
+          <p>Terms of Service</p>
+        </NavLink>
       </div>
     </div>
   );

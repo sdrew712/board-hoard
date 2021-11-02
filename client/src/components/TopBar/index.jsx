@@ -1,8 +1,9 @@
-import * as React from "react";
+import React, { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import "./index.scss";
 
 import Cart from "../Cart";
+import useWindowDimensions from "../../hooks/useWindowDimensions";
 
 import { styled, useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
@@ -18,7 +19,7 @@ import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 
 import LocalMallIcon from "@mui/icons-material/LocalMall";
 
-const drawerWidth = 240;
+let drawerWidth = 240;
 
 const AppBar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== "open",
@@ -49,6 +50,14 @@ const DrawerHeader = styled("div")(({ theme }) => ({
 export default function TopBar() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
+
+  //handle cart size
+  const { width } = useWindowDimensions().windowDimensions;
+  useEffect(() => {
+    if (width < 768) {
+      drawerWidth = width;
+    }
+  }, [width]);
 
   const handleDrawerOpen = () => {
     setOpen(true);

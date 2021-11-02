@@ -11,6 +11,8 @@ import Success from "./Cart/Success";
 import NotFoundPage from "./NotFoundPage/NotFoundPage";
 import Footer from "./Footer";
 
+import useWindowDimensions from "../hooks/useWindowDimensions";
+
 //create mui theme
 const theme = createTheme({
   palette: {
@@ -25,12 +27,14 @@ const theme = createTheme({
 });
 
 const App = () => {
+  const { width } = useWindowDimensions().windowDimensions;
+
   return (
     <ThemeProvider theme={theme}>
       <Router>
         <TopBar />
 
-        <div style={{ paddingTop: "94px" }}>
+        <div style={width > 768 ? { paddingTop: "94px" } : { paddingTop: "76px" }}>
           <Switch>
             <Route exact path="/" component={HomePage} />
             <Route exact path="/shop" component={ShopPage} />

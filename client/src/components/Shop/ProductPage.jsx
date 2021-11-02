@@ -30,7 +30,7 @@ const ProductPage = (props) => {
     const newItem = {
       id: boardData.id,
       name: boardData.name,
-      price: parseInt(boardData.price),
+      price: boardData.price,
       brand: boardData.brand,
       imageURL: boardData.image_url,
       length: boardData.length,

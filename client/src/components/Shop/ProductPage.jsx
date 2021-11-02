@@ -4,6 +4,9 @@ import useCart from "../../hooks/useCart";
 
 import Loading from "./Loading";
 
+import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
+
 const ProductPage = (props) => {
   const { cart, setCart } = useCart();
   const [boardData, setBoardData] = useState({});
@@ -62,12 +65,12 @@ const ProductPage = (props) => {
   }
 
   return (
-    <div>
+    <div id="product-page">
       <img src={boardData.image_url} alt={`${boardData.name} deck`} style={{ width: "250px" }} />
 
       <div>
-        <h3>{boardData.name}</h3>
-        <p>${boardData.price}</p>
+        <h2>{boardData.name}</h2>
+        <h3>${boardData.price}</h3>
         <p>{boardData.description}</p>
       </div>
 
@@ -79,17 +82,19 @@ const ProductPage = (props) => {
         <p>Wheelbase: {boardData.wheelbase}"</p>
         <p>Flex: {boardData.flex}</p>
       </div>
-      <label htmlFor="quantity">Quantity:</label>
-      <input
-        type="number"
-        name="quantity"
+
+      <TextField
         id="quantity"
+        label="Quantity"
+        type="number"
         min="1"
         defaultValue="1"
         onChange={({ target }) => setQuantity(target.value)}
       />
 
-      <button onClick={handleAddToCart}>Add to cart</button>
+      <Button variant={"contained"} color="secondary" sx={{ margin: "5px" }} onClick={handleAddToCart}>
+        Add to cart
+      </Button>
     </div>
   );
 };

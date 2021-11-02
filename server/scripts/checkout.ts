@@ -17,6 +17,9 @@ export const checkout = async (req: Request, res: Response) => {
         //stripe requires cents, so change to cent amount
         unit_amount: cartItem.price * 100,
       },
+      adjustable_quantity: {
+        enabled: true,
+      },
       quantity: cartItem.quantity,
     });
   });

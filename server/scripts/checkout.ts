@@ -21,7 +21,7 @@ export const checkout = async (req: Request, res: Response) => {
         enabled: true,
       },
       quantity: cartItem.quantity,
-      description: `Length: ${cartItem.length}'' Flex: ${cartItem.flex}`,
+      description: `Length: ${cartItem.length}" Flex: ${cartItem.flex}`,
     });
   });
 

@@ -4,6 +4,7 @@ import useCart from "../../hooks/useCart";
 import Divider from "@mui/material/Divider";
 import ListItem from "@mui/material/ListItem";
 import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
 
 import "./index.scss";
 
@@ -38,10 +39,10 @@ const Cart = () => {
     return (
       <div key={item.id}>
         <ListItem>
-          <div>
-            <h2>{item.name}</h2>
+          <div className="cart-item">
+            <h3 className="item-name">{item.name}</h3>
             <img src={item.imageURL} alt={`${item.name} deck`} className="cart-image" />
-            <h3>{item.brand}</h3>
+            <h4>{item.brand}</h4>
             <p>{item.length}"</p>
             <p>{item.flex}</p>
             <h3>${item.price * item.quantity}</h3>
@@ -74,7 +75,11 @@ const Cart = () => {
       <form action="http://localhost:3001/create-checkout-session" method="POST">
         {cartItems}
         <input type="hidden" name="cart" value={stringCart} />
-        <button type="submit">Checkout</button>
+        <div id="checkout-button-container">
+          <Button variant={"contained"} color="secondary" sx={{ margin: "5px" }} type="submit">
+            Checkout
+          </Button>
+        </div>
       </form>
     </>
   );

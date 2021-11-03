@@ -15,6 +15,7 @@ const Cart = () => {
   const stringCart = JSON.stringify(cart);
 
   const handleQuantityChange = (quantity, id) => {
+    console.log(quantity);
     const cartCopy = [...cart];
 
     //find product in cart
@@ -25,6 +26,10 @@ const Cart = () => {
     //if the selected quantity is greater than 0, update it
     if (quantity > 0) {
       cartCopy[productIndex].quantity = quantity;
+      setCart(cartCopy);
+    }
+    if (quantity === "0") {
+      cartCopy.splice(productIndex, 1);
       setCart(cartCopy);
     }
   };
@@ -61,7 +66,7 @@ const Cart = () => {
               label="Quantity"
               type="number"
               min="1"
-              value={item.quantity}
+              defaultValue={item.quantity}
               onChange={({ target }) => handleQuantityChange(target.value, item.id)}
               InputLabelProps={{
                 shrink: true,

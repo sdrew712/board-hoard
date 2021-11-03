@@ -13,7 +13,7 @@ const ProductPage = ({ location }) => {
   const [quantity, setQuantity] = useState(1);
 
   //get board id from URL
-  const boardId = location.pathname.substring(6, 7);
+  const boardId = location.pathname.substring(6);
 
   //get board data for this page
   useEffect(() => {

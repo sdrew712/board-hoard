@@ -60,26 +60,28 @@ const Cart = () => {
             <p>Flex: {item.flex}</p>
             <h3>${item.price * item.quantity}</h3>
 
-            <TextField
-              id="outlined-number"
-              label="Quantity"
-              type="number"
-              min="1"
-              defaultValue={item.quantity}
-              onChange={({ target }) => handleQuantityChange(target.value, item.id)}
-              InputLabelProps={{
-                shrink: true,
-              }}
-            />
+            <div className="cart-quantity-container">
+              <TextField
+                id="outlined-number"
+                label="Quantity"
+                type="number"
+                min="1"
+                defaultValue={item.quantity}
+                onChange={({ target }) => handleQuantityChange(target.value, item.id)}
+                InputLabelProps={{
+                  shrink: true,
+                }}
+              />
 
-            <Button
-              variant={"contained"}
-              color="secondary"
-              sx={{ margin: "5px" }}
-              onClick={() => handleRemoveItem(item.id)}
-            >
-              X
-            </Button>
+              <Button
+                variant={"contained"}
+                color="secondary"
+                sx={{ marginLeft: "10px" }}
+                onClick={() => handleRemoveItem(item.id)}
+              >
+                X
+              </Button>
+            </div>
           </div>
         </ListItem>
         <Divider />

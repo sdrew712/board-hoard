@@ -112,7 +112,7 @@ const Filters = ({ getBoardsData, setBoardsData, isFiltered, setIsFiltered }) =>
       return (
         <div>
           <h2 className="main-font">Filters</h2>
-          <div className="button">
+          <div className="clear-button">
             <Button variant="contained" color="secondary" onClick={handleClearFilters}>
               Clear filters
             </Button>

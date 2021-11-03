@@ -42,9 +42,9 @@ const Cart = () => {
           <div className="cart-item">
             <h3 className="item-name">{item.name}</h3>
             <img src={item.imageURL} alt={`${item.name} deck`} className="cart-image" />
-            <h4>{item.brand}</h4>
-            <p>{item.length}"</p>
-            <p>{item.flex}</p>
+            <h3>{item.brand}</h3>
+            <p>Length: {item.length}"</p>
+            <p>Flex: {item.flex}</p>
             <h3>${item.price * item.quantity}</h3>
 
             <TextField

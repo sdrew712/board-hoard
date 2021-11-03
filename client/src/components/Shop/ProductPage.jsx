@@ -7,13 +7,13 @@ import Loading from "./Loading";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 
-const ProductPage = (props) => {
+const ProductPage = ({ location }) => {
   const { cart, setCart } = useCart();
   const [boardData, setBoardData] = useState({});
   const [quantity, setQuantity] = useState(1);
 
   //get board id from URL
-  const boardId = props.location.pathname.substring(6, 7);
+  const boardId = location.pathname.substring(6, 7);
 
   //get board data for this page
   useEffect(() => {

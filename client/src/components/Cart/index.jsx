@@ -15,7 +15,6 @@ const Cart = () => {
   const stringCart = JSON.stringify(cart);
 
   const handleQuantityChange = (quantity, id) => {
-    console.log(quantity);
     const cartCopy = [...cart];
 
     //find product in cart

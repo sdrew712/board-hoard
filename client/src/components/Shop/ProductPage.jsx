@@ -22,12 +22,9 @@ const ProductPage = ({ location }) => {
     });
   }, [boardId]);
 
-  // console.log(cart);
-
   //add board to cart
   const handleAddToCart = () => {
     const cartCopy = [...cart];
-    // console.log(boardData);
 
     //create new item object
     const newItem = {

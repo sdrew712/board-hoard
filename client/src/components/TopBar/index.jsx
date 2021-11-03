@@ -53,9 +53,13 @@ export default function TopBar() {
 
   //handle cart size
   const { width } = useWindowDimensions().windowDimensions;
+
   useEffect(() => {
     if (width < 768) {
       drawerWidth = width;
+    }
+    if (width >= 768) {
+      drawerWidth = 300;
     }
   }, [width]);
 

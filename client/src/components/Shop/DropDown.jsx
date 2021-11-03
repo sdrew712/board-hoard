@@ -27,7 +27,7 @@ const DropDown = ({ labelOptions, setFilterTerm, setIsFiltered, handleClearFilte
 
   return (
     <>
-      <FormControl variant="standard" style={{ minWidth: 120 }}>
+      <FormControl variant="standard">
         <InputLabel id="demo-simple-select-standard-label">Sort by</InputLabel>
         <Select
           labelId="demo-simple-select-standard-label"

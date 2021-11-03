@@ -5,18 +5,12 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 
-const ProductCard = ({ id, imageURL, name, price, brand, category, flex, length }) => {
+const ProductCard = ({ id, imageURL, name, price, brand, length }) => {
   return (
     <>
-      <Link to={`/shop/${id}`} style={{ textDecoration: "none" }}>
+      <Link to={`/shop/${id}`}>
         <Card className="product-card">
-          <CardMedia
-            component="img"
-            image={imageURL}
-            alt={`${name} deck`}
-            className="board-img"
-            style={{ width: "250px", paddingTop: "20px", paddingBottom: "10px" }}
-          />
+          <CardMedia component="img" image={imageURL} alt={`${name} deck`} className="board-img" />
           <CardContent>
             <h3 className="product-name">{name}</h3>
             <div className="product-details-container">

@@ -74,17 +74,16 @@ const ProductPage = (props) => {
         <div>
           <h2>{boardData.name}</h2>
           <h3>${boardData.price}</h3>
-          <p>{boardData.description}</p>
+          <div>
+            <h4>{boardData.brand}</h4>
+            <p className="product-page-detail">{boardData.category}</p>
+            <p className="product-page-detail">Length {boardData.length}"</p>
+            <p className="product-page-detail">Width {boardData.width}"</p>
+            <p className="product-page-detail">Wheelbase: {boardData.wheelbase}"</p>
+            <p className="product-page-detail">Flex: {boardData.flex}</p>
+          </div>
         </div>
-
-        <div>
-          <p>{boardData.brand}</p>
-          <p>{boardData.category}</p>
-          <p>Length {boardData.length}"</p>
-          <p>Width {boardData.width}"</p>
-          <p>Wheelbase: {boardData.wheelbase}"</p>
-          <p>Flex: {boardData.flex}</p>
-        </div>
+        <p className="product-description">{boardData.description}</p>
 
         <div className="product-utils-container">
           <div className="product-quantity">

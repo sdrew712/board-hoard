@@ -34,7 +34,8 @@
 
 .product-brand,
 .product-length,
-.product-price {
+.product-price,
+.product-page-detail {
   font-family: "Open Sans", sans-serif;
   color: rgba(0, 0, 0, 0.6);
 }
@@ -54,6 +55,11 @@
   display: flex;
   justify-content: space-between;
   align-items: baseline;
+}
+
+.product-description {
+  padding-top: 30px;
+  padding-bottom: 20px;
 }
 
 .product-price {

@@ -18,7 +18,7 @@ const HomePage = () => {
           </video>
 
           <div className="slogan-container">
-            <h1 id="slogan">Up your longboarding game</h1>
+            <h1 className="header">Up your longboarding game</h1>
 
             <Link to={`/shop`}>
               <ShopNowButton />
@@ -33,7 +33,7 @@ const HomePage = () => {
             alt="girl riding longboard"
           />
           <div className="slogan-container">
-            <h1 id="slogan">Up your longboarding game</h1>
+            <h1 className="header">Up your longboarding game</h1>
 
             <Link to={`/shop`}>
               <ShopNowButton />

@@ -24,9 +24,14 @@
 
 #success-page {
   padding: 50px;
+  height: 100vh;
 }
 
 .cart-quantity-container {
   display: flex;
   align-items: center;
+}
+
+.email-link {
+  color: #f67671;
 }

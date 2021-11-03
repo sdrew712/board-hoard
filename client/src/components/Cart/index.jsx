@@ -27,11 +27,20 @@ const Cart = () => {
       cartCopy[productIndex].quantity = quantity;
       setCart(cartCopy);
     }
-    //else, remove it from the state(causing rerender and its removal from cart)
-    else {
-      cartCopy.splice(productIndex, 1);
-      setCart(cartCopy);
-    }
+  };
+
+  const handleRemoveItem = (id) => {
+    // remove it from the state(causing rerender and its removal from cart)
+    const cartCopy = [...cart];
+
+    //find product in cart
+    const existingItem = cartCopy.find((cartItem) => cartItem.id === id);
+    //find index of product in cart
+    const productIndex = cartCopy.indexOf(existingItem);
+
+    cartCopy.splice(productIndex, 1);
+
+    setCart(cartCopy);
   };
 
   //map over the items in cart, returning html to display each
@@ -51,12 +60,22 @@ const Cart = () => {
               id="outlined-number"
               label="Quantity"
               type="number"
+              min="1"
               value={item.quantity}
               onChange={({ target }) => handleQuantityChange(target.value, item.id)}
               InputLabelProps={{
                 shrink: true,
               }}
             />
+
+            <Button
+              variant={"contained"}
+              color="secondary"
+              sx={{ margin: "5px" }}
+              onClick={() => handleRemoveItem(item.id)}
+            >
+              X
+            </Button>
           </div>
         </ListItem>
         <Divider />

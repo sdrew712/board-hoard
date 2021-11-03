@@ -66,37 +66,41 @@ const ProductPage = (props) => {
 
   return (
     <div id="product-page">
-      <img src={boardData.image_url} alt={`${boardData.name} deck`} style={{ width: "250px" }} />
-
       <div>
-        <h2>{boardData.name}</h2>
-        <h3>${boardData.price}</h3>
-        <p>{boardData.description}</p>
+        <img src={boardData.image_url} alt={`${boardData.name} deck`} className="product-image" />
       </div>
 
-      <div>
-        <p>{boardData.brand}</p>
-        <p>{boardData.category}</p>
-        <p>Length {boardData.length}"</p>
-        <p>Width {boardData.width}"</p>
-        <p>Wheelbase: {boardData.wheelbase}"</p>
-        <p>Flex: {boardData.flex}</p>
-      </div>
-
-      <div className="product-utils-container">
-        <div className="product-quantity">
-          <TextField
-            label="Quantity"
-            type="number"
-            min="1"
-            defaultValue="1"
-            onChange={({ target }) => setQuantity(target.value)}
-          />
+      <div className="product-info">
+        <div>
+          <h2>{boardData.name}</h2>
+          <h3>${boardData.price}</h3>
+          <p>{boardData.description}</p>
         </div>
 
-        <Button variant={"contained"} color="secondary" sx={{ margin: "5px" }} onClick={handleAddToCart}>
-          Add to cart
-        </Button>
+        <div>
+          <p>{boardData.brand}</p>
+          <p>{boardData.category}</p>
+          <p>Length {boardData.length}"</p>
+          <p>Width {boardData.width}"</p>
+          <p>Wheelbase: {boardData.wheelbase}"</p>
+          <p>Flex: {boardData.flex}</p>
+        </div>
+
+        <div className="product-utils-container">
+          <div className="product-quantity">
+            <TextField
+              label="Quantity"
+              type="number"
+              min="1"
+              defaultValue="1"
+              onChange={({ target }) => setQuantity(target.value)}
+            />
+          </div>
+
+          <Button variant={"contained"} color="secondary" sx={{ margin: "5px" }} onClick={handleAddToCart}>
+            Add to cart
+          </Button>
+        </div>
       </div>
     </div>
   );

@@ -66,7 +66,11 @@ const Cart = () => {
 
   //if cart is empty, display message
   if (cart.length === 0) {
-    return <p>Your cart is empty</p>;
+    return (
+      <div id="cart-empty">
+        <p>Your cart is empty</p>
+      </div>
+    );
   }
 
   return (

@@ -25,6 +25,8 @@ const Filters = ({ getBoardsData, setBoardsData, isFiltered, setIsFiltered }) =>
   const [searchTerm, setSearchTerm] = useState("");
   const [debouncedSearchTerm, setDebouncedSearchTerm] = useState("");
 
+  console.log(isFiltered);
+
   // easter egg lul
   useEffect(() => {
     if (debouncedSearchTerm.toLowerCase() === "longboard") {
@@ -33,6 +35,14 @@ const Filters = ({ getBoardsData, setBoardsData, isFiltered, setIsFiltered }) =>
       setSearchTerm("");
     }
   }, [debouncedSearchTerm]);
+
+  useEffect(() => {
+    if (brandFilterTerms.length || categoryFilterTerms.length || flexFilterTerms.length > 0) {
+      setIsFiltered(true);
+    } else {
+      setIsFiltered(false);
+    }
+  }, [brandFilterTerms, categoryFilterTerms, flexFilterTerms, setIsFiltered]);
 
   // if filtered is true, get filtered boards data and set it to state
   useEffect(() => {

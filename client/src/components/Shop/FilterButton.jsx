@@ -8,7 +8,7 @@ const FilterButton = ({ isFiltered, setIsFiltered, filterTerms, setFilterTerms, 
   //handle filter terms and filtered state
   const handleFilterTerms = (buttonClicked) => {
     //if button clicked is in filter terms and if there are no more buttons left, set filtered to false
-    if (filterTerms.includes(buttonClicked) && filterTerms.length <= 1) {
+    if (filterTerms.includes(buttonClicked) && filterTerms.length < 1) {
       setIsFiltered(false);
     }
     //if button clicked is the same as one in the state array, change the array to remove it from the filter state
@@ -26,7 +26,7 @@ const FilterButton = ({ isFiltered, setIsFiltered, filterTerms, setFilterTerms, 
     }
   };
 
-  //if filtered state is false, set toggled to false
+  // if filtered state is false, set toggled to false
   useEffect(() => {
     if (!isFiltered) {
       setToggled(false);

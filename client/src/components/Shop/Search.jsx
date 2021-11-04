@@ -17,6 +17,10 @@ const Search = ({ setIsFiltered, searchTerm, setSearchTerm, setDebouncedSearchTe
   const handleSearch = ({ target }) => {
     setSearchTerm(target.value);
     setIsFiltered(true);
+
+    if (target.value === "") {
+      setIsFiltered(false);
+    }
   };
 
   return (

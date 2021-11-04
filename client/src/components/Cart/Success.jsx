@@ -1,6 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
+import useCart from "../../hooks/useCart";
 
 const Success = () => {
+  const { setCart } = useCart();
+
+  useEffect(() => {
+    setCart([]);
+  }, []);
+
   return (
     <div id="success-page">
       <h1 className="header">Thanks for your order!</h1>

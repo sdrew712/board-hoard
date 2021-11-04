@@ -10,6 +10,10 @@
   padding: 50px;
 }
 
+#loading {
+  height: 100vh;
+}
+
 #product-page {
   display: flex;
   flex-direction: column;
@@ -29,7 +33,6 @@
   width: 220px;
   height: 380px;
   padding-top: 20px;
-  padding-bottom: 10px;
 }
 
 .product-image {

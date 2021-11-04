@@ -25,8 +25,6 @@ const Filters = ({ getBoardsData, setBoardsData, isFiltered, setIsFiltered }) =>
   const [searchTerm, setSearchTerm] = useState("");
   const [debouncedSearchTerm, setDebouncedSearchTerm] = useState("");
 
-  console.log(isFiltered);
-
   // easter egg lul
   useEffect(() => {
     if (debouncedSearchTerm.toLowerCase() === "longboard") {
